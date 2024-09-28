@@ -25,26 +25,28 @@ class BannerAdvertisementResource extends Resource
             ->schema([
                 //
                 Forms\Components\TextInput::make('link')
-                ->activeUrl()
-                ->required()
-                ->maxLength(255),
+                    ->activeUrl()
+                    ->required()
+                    ->maxLength(255),
 
                 Forms\Components\FileUpload::make('thumbnail')
-                ->required()
-                ->image(),
+                    ->disk('public')
+                    ->directory('ads-thumbnail')
+                    ->required(),
+
 
                 Forms\Components\Select::make('is_active')
-                ->options([
-                    'active' => 'Active',
-                    'not_active' => 'Not Active',
-                ])
-                ->required(),
+                    ->options([
+                        'active' => 'Active',
+                        'not_active' => 'Not Active',
+                    ])
+                    ->required(),
 
                 Forms\Components\Select::make('type')
-                ->options([
-                    'banner' => 'Banner',
-                    'square' => 'Square',
-                ]),
+                    ->options([
+                        'banner' => 'Banner',
+                        'square' => 'Square',
+                    ]),
             ]);
     }
 
@@ -54,13 +56,13 @@ class BannerAdvertisementResource extends Resource
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('link')
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('is_active')
-                ->badge()
-                ->color(fn (string $state): string => match ($state) {
-                    'active' => 'success',
-                    'not_active' => 'danger'
-                }),
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'active' => 'success',
+                        'not_active' => 'danger'
+                    }),
                 Tables\Columns\ImageColumn::make('thumbnail'),
             ])
             ->filters([
