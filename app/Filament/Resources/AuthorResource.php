@@ -25,16 +25,49 @@ class AuthorResource extends Resource
             ->schema([
                 //
                 Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('email')
+                    ->label('Email')
+                    ->required()
+                    ->email()
+                    ->unique(ignorable: fn($record) => $record)
+                    ->visibleOn('create'),
+                Forms\Components\TextInput::make('password')
+                    ->label('Password')
+                    ->required()
+                    ->password()
+                    ->visibleOn('create'),
+                Forms\Components\TextInput::make('angkatan')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('jurusan')
+                    ->maxLength(255),
 
                 Forms\Components\TextInput::make('occupation')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
 
                 Forms\Components\FileUpload::make('avatar')
-                ->required()
-                ->image(),
+                    ->required()
+                    ->image(),
+                Forms\Components\TextInput::make('instagram')
+                    ->activeUrl()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('facebook')
+                    ->activeUrl()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('tiktok')
+                    ->activeUrl()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('youtube')
+                    ->activeUrl()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('linkedin')
+                    ->activeUrl()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('twitter')
+                    ->activeUrl()
+                    ->maxLength(255),
             ]);
     }
 
@@ -45,6 +78,15 @@ class AuthorResource extends Resource
                 //
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\ImageColumn::make('avatar'),
+                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('angkatan'),
+                Tables\Columns\TextColumn::make('jurusan'),
+                Tables\Columns\TextColumn::make('instagram'),
+                Tables\Columns\TextColumn::make('facebook'),
+                Tables\Columns\TextColumn::make('tiktok'),
+                Tables\Columns\TextColumn::make('youtube'),
+                Tables\Columns\TextColumn::make('linkedin'),
+                Tables\Columns\TextColumn::make('twitter'),
             ])
             ->filters([
                 //

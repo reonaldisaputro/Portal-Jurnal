@@ -66,14 +66,15 @@
             </article>
             <div class="side-bar flex flex-col md:w-[300px] w-full shrink-0 gap-10">
                 <div class="ads flex flex-col gap-3 w-full">
-				<a href="{{$square_ads_1->link}}">
-					<img src="{{Storage::url($square_ads_1->thumbnail)}}" class="object-contain w-full h-full" alt="ads" />
-				</a>
-				<p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
-					Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
-							src="{{asset('assets/images/icons/message-question.svg')}}" alt="icon" /></a>
-				</p>
-			    </div>
+                    <a href="{{ $square_ads_1->link }}">
+                        <img src="{{ Storage::url($square_ads_1->thumbnail) }}" class="object-contain w-full h-full"
+                            alt="ads" />
+                    </a>
+                    <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
+                        Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
+                                src="{{ asset('assets/images/icons/message-question.svg') }}" alt="icon" /></a>
+                    </p>
+                </div>
                 <div id="More-from-author" class="flex flex-col gap-4">
                     <p class="font-bold">More From Author</p>
                     @forelse($author_news as $item_news)
@@ -161,6 +162,7 @@
                 </div>
             </div>
         </section>
+        <x-footer />
 
 
     </body>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-Use Illuminate\Support\Str;
+use Illuminate\Support\Str;
 
 class Author extends Model
 {
@@ -17,6 +17,16 @@ class Author extends Model
         'occupation',
         'avatar',
         'slug',
+        'email',
+        'password',
+        'jurusan',
+        'angkatan',
+        'instagram',
+        'facebook',
+        'youtube',
+        'tiktok',
+        'linkedin',
+        'twitter'
     ];
 
     public function setNameAttribute($value)

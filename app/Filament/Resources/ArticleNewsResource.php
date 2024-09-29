@@ -26,52 +26,57 @@ class ArticleNewsResource extends Resource
             ->schema([
                 //
                 Forms\Components\TextInput::make('name')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
 
                 Forms\Components\TextInput::make('slug')
-                ->disabled(),
+                    ->disabled(),
 
                 Forms\Components\FileUpload::make('thumbnail'),
 
                 Forms\Components\Select::make('category_id')
-                ->relationship('category', 'name')
-                ->searchable()
-                ->preload()
-                ->required(),
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
                 Forms\Components\Select::make('author_id')
-                ->relationship('author','name')
-                ->searchable()
-                ->preload()
-                ->required(),
+                    ->relationship('author', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
                 Forms\Components\Select::make('is_featured')
-                ->options([
-                    'featured' => 'Featured',
-                    'not_featured' => 'Not Featured',
-                ])
-                ->required(),
+                    ->options([
+                        'featured' => 'Featured',
+                        'not_featured' => 'Not Featured',
+                    ])
+                    ->required(),
+                Forms\Components\TextInput::make('link_pdf')
+                    ->activeUrl()
+                    ->label('Link PDF')
+                    ->required()
+                    ->maxLength(255),
 
                 Forms\Components\RichEditor::make('content')
-                ->required()
-                ->columnSpanFull()
-                ->toolbarButtons([
-                    'attachFiles',
-                    'blockquote',
-                    'bold',
-                    'bulletList',
-                    'codeBlock',
-                    'h2',
-                    'h3',
-                    'italic',
-                    'link',
-                    'orederedList',
-                    'redo',
-                    'strike',
-                    'underline',
-                    'undo',
-                ]),
+                    ->required()
+                    ->columnSpanFull()
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orederedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ]),
             ]);
     }
 
@@ -81,17 +86,19 @@ class ArticleNewsResource extends Resource
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('name')
-                ->searchable(),
+                    ->searchable(),
 
                 Tables\Columns\TextColumn::make('is_featured')
-                ->badge()
-                ->color(fn (string $state): string => match ($state) {
-                    'featured' => 'success',
-                    'not_featured' => 'danger',
-                }),
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'featured' => 'success',
+                        'not_featured' => 'danger',
+                    }),
 
                 Tables\Columns\TextColumn::make('category.name'),
-                
+                Tables\Columns\TextColumn::make('link_pdf')
+                    ->label('Link PDF'),
+
                 Tables\Columns\ImageColumn::make('thumbnail'),
             ])
             ->filters([

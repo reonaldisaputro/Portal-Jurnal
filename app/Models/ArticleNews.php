@@ -20,7 +20,8 @@ class ArticleNews extends Model
         'category_id',
         'author_id',
         'is_featured',
-        'view'
+        'view',
+        'link_pdf'
     ];
 
     public function setNameAttribute($value)
