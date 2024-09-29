@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable; // Ganti model dasar
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Author extends Model
+class Author extends Authenticatable // Ubah dari Model menjadi Authenticatable
 {
     use HasFactory, SoftDeletes;
 
@@ -18,6 +17,7 @@ class Author extends Model
         'avatar',
         'slug',
         'email',
+        'phone',
         'password',
         'jurusan',
         'angkatan',
@@ -26,7 +26,12 @@ class Author extends Model
         'youtube',
         'tiktok',
         'linkedin',
-        'twitter'
+        'twitter',
+    ];
+
+    protected $hidden = [
+        'password', // Sembunyikan password dari hasil serialisasi
+        'remember_token',
     ];
 
     public function setNameAttribute($value)
@@ -35,7 +40,7 @@ class Author extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function news(): HasMany
+    public function news()
     {
         return $this->hasMany(ArticleNews::class);
     }

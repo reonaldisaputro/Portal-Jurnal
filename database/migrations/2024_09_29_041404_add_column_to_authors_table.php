@@ -32,7 +32,17 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('authors', function (Blueprint $table) {
-            //
+            $table->dropColumn('email');
+            $table->dropColumn('password');
+            $table->dropColumn('phone');
+            $table->dropColumn('angkatan');
+            $table->dropColumn('jurusan');
+            $table->dropColumn('instagram');
+            $table->dropColumn('facebook');
+            $table->dropColumn('youtube');
+            $table->dropColumn('linkedin');
+            $table->dropColumn('twitter');
+            $table->dropColumn('tiktok');
         });
     }
 };

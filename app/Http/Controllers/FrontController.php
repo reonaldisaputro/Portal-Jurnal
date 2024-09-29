@@ -130,6 +130,9 @@ class FrontController extends Controller
 
     public function details(ArticleNews $articleNews)
     {
+        // Tambah jumlah view
+        $articleNews->increment('view');
+
         $categories = Category::all();
 
         $articles = ArticleNews::with(['category'])
