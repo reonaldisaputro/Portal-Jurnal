@@ -2,7 +2,7 @@
 @section('content')
 <body class="font-[Poppins] pb-[83px]">
 	<x-navbar/>
-	<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
+	<nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
         @foreach($categories as $item_category)
         <a href="{{route('front.category', $item_category->slug)}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
             <div class="w-6 h-6 flex shrink-0">
@@ -17,7 +17,7 @@
 			Explore Our <br />
 			{{$category->name}} News
 		</h1>
-		<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
+		<div id="search-cards" class="grid grid-cols-2 md:grid-cols-3 mx-3 gap-[30px]">
             @forelse ($category->news as $news)
 			<a href="{{route('front.details', $news->slug)}}" class="card">
 				<div
@@ -42,10 +42,10 @@
 			
 		</div>
 	</section>
-	<section id="Advertisement" class="max-w-[1130px] mx-auto flex justify-center mt-[70px]">
-		<div class="flex flex-col gap-3 shrink-0 w-fit">
+	<section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px]">
+		<div class="flex flex-col gap-3 shrink-0 w-full">
 			<a href="{{$bannerads->link}}">
-				<div class="w-[900px] h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
+				<div class="w-full h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
 					<img src="{{Storage::url($bannerads->thumbnail)}}" class="object-cover w-full h-full" alt="ads" />
 				</div>
 			</a>

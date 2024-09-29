@@ -19,7 +19,8 @@ class ArticleNews extends Model
         'content',
         'category_id',
         'author_id',
-        'is_featured'
+        'is_featured',
+        'view'
     ];
 
     public function setNameAttribute($value)
