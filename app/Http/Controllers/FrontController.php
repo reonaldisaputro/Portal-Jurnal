@@ -40,7 +40,7 @@ class FrontController extends Controller
 
         // Artikel untuk kategori Entertainment dengan status 'accept'
         $entertainment_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Akademik');
+            $query->where('name', 'Tasawuf');
         })
             ->where('is_featured', 'not_featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
@@ -49,7 +49,7 @@ class FrontController extends Controller
             ->get();
 
         $entertainment_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Akademik');
+            $query->where('name', 'Tasawuf');
         })
             ->where('is_featured', 'featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
@@ -58,7 +58,7 @@ class FrontController extends Controller
 
         // Artikel untuk kategori Business dengan status 'accept'
         $business_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Kajian Islam');
+            $query->where('name', 'Aqidah');
         })
             ->where('is_featured', 'not_featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
@@ -67,7 +67,7 @@ class FrontController extends Controller
             ->get();
 
         $business_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Kajian Islam');
+            $query->where('name', 'Aqidah');
         })
             ->where('is_featured', 'featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
@@ -76,7 +76,7 @@ class FrontController extends Controller
 
         // Artikel untuk kategori Automotive dengan status 'accept'
         $automotive_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Ekonomi Syariah');
+            $query->where('name', 'Tafsir');
         })
             ->where('is_featured', 'not_featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
@@ -85,7 +85,7 @@ class FrontController extends Controller
             ->get();
 
         $automotive_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Ekonomi Syariah');
+            $query->where('name', 'Tafsir');
         })
             ->where('is_featured', 'featured')
             ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
