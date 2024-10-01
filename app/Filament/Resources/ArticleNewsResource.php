@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ArticleNewsResource\Pages;
-use App\Filament\Resources\ArticleNewsResource\RelationManagers;
-use App\Models\ArticleNews;
 use Filament\Forms;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\ArticleNews;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ArticleNewsResource\Pages;
+use App\Filament\Resources\ArticleNewsResource\RelationManagers;
 
 class ArticleNewsResource extends Resource
 {
@@ -58,6 +59,7 @@ class ArticleNewsResource extends Resource
                     ->required()
                     ->maxLength(255),
 
+
                 Forms\Components\RichEditor::make('content')
                     ->required()
                     ->columnSpanFull()
@@ -77,6 +79,15 @@ class ArticleNewsResource extends Resource
                         'underline',
                         'undo',
                     ]),
+                Select::make('status')
+                    ->label('Status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'accept' => 'Accepted',
+                        'reject' => 'Rejected',
+                    ])
+                    ->default('pending')
+                    ->required(),
             ]);
     }
 
@@ -98,6 +109,17 @@ class ArticleNewsResource extends Resource
                 Tables\Columns\TextColumn::make('category.name'),
                 Tables\Columns\TextColumn::make('link_pdf')
                     ->label('Link PDF'),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
+                    ->formatStateUsing(function ($state) {
+                        return match ($state) {
+                            'pending' => 'Pending',
+                            'accept' => 'Accepted',
+                            'reject' => 'Rejected',
+                            default => 'Unknown',
+                        };
+                    })
+                    ->sortable(),
 
                 Tables\Columns\ImageColumn::make('thumbnail'),
             ])

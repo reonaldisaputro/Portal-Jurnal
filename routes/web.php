@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\PdfAuthorController;
 use App\Http\Controllers\AuthorAuthController;
+use App\Http\Controllers\AuthorPDFController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/details/{article_news:slug}', [FrontController::class, 'details'])->name('front.details');
@@ -21,8 +22,7 @@ Route::group(['prefix' => 'author-auth'], function () {
 });
 
 
-// TOLONG 2 ROUTE INI DIBUATKAN MIDDLEWARE KALAU AUTHORS LOGIN
 Route::prefix('author')->middleware(['auth:author'])->group(function () {
-    Route::get('/pdf-authors/create', [PdfAuthorController::class, 'create'])->name('pdf_authors.create');
-    Route::post('/pdf-authors', [PdfAuthorController::class, 'store'])->name('pdf_authors.store');
+    Route::get('/pdf-authors/create', [AuthorPDFController::class, 'create'])->name('pdf_authors.create');
+    Route::post('/pdf-authors', [AuthorPDFController::class, 'store'])->name('pdf_authors.store');
 });
