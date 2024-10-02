@@ -198,10 +198,10 @@
                         alt="ads" />
                 </div>
             </a>
-            <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
+            {{-- <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
                 Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
                         src="{{ asset('assets/images/icons/message-question.svg') }}" alt="icon" /></a>
-            </p>
+            </p> --}}
         </div>
     </section>
     <x-footer />

@@ -9,7 +9,7 @@
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
                     <!-- Tambahkan bg-white -->
                     {{-- <div class="w-6 h-6 flex shrink-0">
-                        <img src="{{ Storage::url($category->icon) }}" alt="icon" />
+                        <img src="{{ asset('storage/' . $category->icon) }}" alt="icon" />
                     </div> --}}
                     <span>{{ $category->name }}</span>
                 </a>
@@ -22,7 +22,7 @@
 
                     @forelse($featured_articles as $article)
                         <div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
-                            <img src="{{ Storage::url($article->thumbnail) }}"
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                             <div
                                 class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
@@ -75,8 +75,8 @@
                                     <p
                                         class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
                                         {{ $article->category->name }}</p>
-                                    <img src="{{ Storage::url($article->thumbnail) }}" class="object-cover w-full h-full"
-                                        alt="thumbnail" />
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                        class="object-cover w-full h-full" alt="thumbnail" />
                                 </div>
                                 <div class="card-info flex flex-col gap-[6px]">
                                     <h3 class="font-bold text-lg leading-[27px]">{{ $article->name }}</h3>
@@ -107,7 +107,7 @@
                             <div
                                 class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                 <div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
-                                    <img src="{{ Storage::url($author->avatar) }}" class="object-cover w-full h-full"
+                                    <img src="{{ asset('storage/' . $author->avatar) }}" class="object-cover w-full h-full"
                                         alt="avatar" />
                                 </div>
                                 <div class="flex flex-col gap-1 text-center">
@@ -130,10 +130,10 @@
                                 alt="ads" />
                         </div>
                     </a>
-                    <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
+                    {{-- <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
                         Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
                                 src="assets/images/icons/message-question.svg" alt="icon" /></a>
-                    </p>
+                    </p> --}}
                 </div>
             </section>
             <section id="Latest-entertainment" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px]">

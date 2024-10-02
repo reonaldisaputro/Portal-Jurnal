@@ -7,9 +7,9 @@
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-                    <div class="w-6 h-6 flex shrink-0">
+                    {{-- <div class="w-6 h-6 flex shrink-0">
                         <img src="{{ Storage::url($category->icon) }}" alt="icon" />
-                    </div>
+                    </div> --}}
                     <span>{{ $category->name }}</span>
                 </a>
             @endforeach
@@ -70,10 +70,10 @@
                         <img src="{{ Storage::url($square_ads_1->thumbnail) }}" class="object-contain w-full h-full"
                             alt="ads" />
                     </a>
-                    <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
+                    {{-- <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
                         Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
                                 src="{{ asset('assets/images/icons/message-question.svg') }}" alt="icon" /></a>
-                    </p>
+                    </p> --}}
                 </div>
                 <div id="More-from-author" class="flex flex-col gap-4">
                     <p class="font-bold">More From Author</p>
@@ -120,10 +120,10 @@
                             alt="ads" />
                     </div>
                 </a>
-                <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
+                {{-- <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
                     Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
                             src="{{ asset('assets/images/icons/message-question.svg') }}')}}" alt="icon" /></a>
-                </p>
+                </p> --}}
             </div>
         </section>
         <section id="Up-to-date" class="w-full mx-3 md:mx-auto flex justify-center mt-[70px] py-[50px] bg-[#F9F9FC]">
