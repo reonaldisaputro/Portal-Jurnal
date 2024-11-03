@@ -45,4 +45,76 @@ class JadwalController extends Controller
             return ResponseFormatter::error('Failed to retrieve jadwal', 500, $e->getMessage());
         }
     }
+
+    // Get jadwal by day
+    public function getByDay($dayId)
+    {
+        try {
+            $jadwals = Jadwal::with(['day', 'kelas', 'mataKuliah', 'dosen'])
+                ->where('day_id', $dayId)
+                ->get();
+
+            if ($jadwals->isEmpty()) {
+                return ResponseFormatter::error('No jadwal found for the specified day', 404);
+            }
+
+            return ResponseFormatter::success($jadwals, 'Data jadwals retrieved successfully for the specified day');
+        } catch (Exception $e) {
+            return ResponseFormatter::error('Failed to retrieve jadwals by day', 500, $e->getMessage());
+        }
+    }
+
+    // Get jadwal by kelas
+    public function getByKelas($kelasId)
+    {
+        try {
+            $jadwals = Jadwal::with(['day', 'kelas', 'mataKuliah', 'dosen'])
+                ->where('kelas_id', $kelasId)
+                ->get();
+
+            if ($jadwals->isEmpty()) {
+                return ResponseFormatter::error('No jadwal found for the specified kelas', 404);
+            }
+
+            return ResponseFormatter::success($jadwals, 'Data jadwals retrieved successfully for the specified kelas');
+        } catch (Exception $e) {
+            return ResponseFormatter::error('Failed to retrieve jadwals by kelas', 500, $e->getMessage());
+        }
+    }
+
+    // Get jadwal by mata kuliah
+    public function getByMataKuliah($mataKuliahId)
+    {
+        try {
+            $jadwals = Jadwal::with(['day', 'kelas', 'mataKuliah', 'dosen'])
+                ->where('mata_kuliah_id', $mataKuliahId)
+                ->get();
+
+            if ($jadwals->isEmpty()) {
+                return ResponseFormatter::error('No jadwal found for the specified mata kuliah', 404);
+            }
+
+            return ResponseFormatter::success($jadwals, 'Data jadwals retrieved successfully for the specified mata kuliah');
+        } catch (Exception $e) {
+            return ResponseFormatter::error('Failed to retrieve jadwals by mata kuliah', 500, $e->getMessage());
+        }
+    }
+
+    // Get jadwal by dosen
+    public function getByDosen($dosenId)
+    {
+        try {
+            $jadwals = Jadwal::with(['day', 'kelas', 'mataKuliah', 'dosen'])
+                ->where('dosen_id', $dosenId)
+                ->get();
+
+            if ($jadwals->isEmpty()) {
+                return ResponseFormatter::error('No jadwal found for the specified dosen', 404);
+            }
+
+            return ResponseFormatter::success($jadwals, 'Data jadwals retrieved successfully for the specified dosen');
+        } catch (Exception $e) {
+            return ResponseFormatter::error('Failed to retrieve jadwals by dosen', 500, $e->getMessage());
+        }
+    }
 }

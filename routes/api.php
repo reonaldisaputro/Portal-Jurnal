@@ -30,6 +30,10 @@ Route::middleware('with_fast_api_key')->group(function () {
     Route::get('jadwals', [JadwalController::class, 'index']);
     Route::get('jadwals/{id}', [JadwalController::class, 'show']);
 
+    Route::get('jadwals/kelas/{kelasId}', [JadwalController::class, 'getByKelas']);
+    Route::get('jadwals/mata-kuliah/{mataKuliahId}', [JadwalController::class, 'getByMataKuliah']);
+    Route::get('jadwals/dosen/{dosenId}', [JadwalController::class, 'getByDosen']);
+
     Route::get('transportations', [TransportationController::class, 'index']);
     Route::get('transportations/{id}', [TransportationController::class, 'show']);
 });
