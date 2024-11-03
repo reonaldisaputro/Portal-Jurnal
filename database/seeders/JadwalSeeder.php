@@ -22,7 +22,6 @@ class JadwalSeeder extends Seeder
                 'ruang' => 'A1',
                 'jam_mulai' => '08:00:00',
                 'jam_selesai' => '10:00:00',
-                'link_zoom' => 'http://zoom.us/j/1234567890',
                 'is_online' => true,
                 'color' => '#FF6347'
             ],
@@ -34,7 +33,6 @@ class JadwalSeeder extends Seeder
                 'ruang' => 'B1',
                 'jam_mulai' => '09:00:00',
                 'jam_selesai' => '11:00:00',
-                'link_zoom' => null,
                 'is_online' => false,
                 'color' => '#4682B4'
             ],

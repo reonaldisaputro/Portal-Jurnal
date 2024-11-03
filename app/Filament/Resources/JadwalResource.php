@@ -51,9 +51,26 @@ class JadwalResource extends Resource
                     ->required()
                     ->label('Dosen'),
 
+                Toggle::make('is_online')
+                    ->label('Online')
+                    ->reactive() // Gunakan reactive untuk mendeteksi perubahan status online secara real-time
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Reset field `ruang` ketika `is_online` diubah
+                        if ($state) {
+                            $set('ruang', 'https://meet.google.com/'); // Set URL default jika diperlukan
+                        } else {
+                            $set('ruang', null);
+                        }
+                    }),
+
                 TextInput::make('ruang')
                     ->required()
-                    ->label('Ruang'),
+                    ->label('Ruang')
+                    ->placeholder(fn($get) => $get('is_online') ? 'Masukkan Link Online' : 'Masukkan Nama Ruang')
+                    ->url(fn($get) => $get('is_online')) // Ubah `ruang` menjadi URL jika `is_online` bernilai true
+                    ->helperText(fn($get) => $get('is_online') ? 'Masukkan link online untuk pertemuan.' : 'Masukkan ruang fisik untuk pertemuan.')
+                    ->visible(fn($get) => !$get('is_online') || $get('is_online'))
+                    ->required(),
 
                 TimePicker::make('jam_mulai')
                     ->required()
@@ -62,13 +79,6 @@ class JadwalResource extends Resource
                 TimePicker::make('jam_selesai')
                     ->required()
                     ->label('Jam Selesai'),
-
-                TextInput::make('link_zoom')
-                    ->label('Link Online')
-                    ->url(),
-
-                Toggle::make('is_online')
-                    ->label('Online'),
 
                 ColorPicker::make('color')
                     ->label('Color')
@@ -103,8 +113,6 @@ class JadwalResource extends Resource
                     ->label('Ruang')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('link_zoom')
-                    ->label('Link Online'),
 
                 TextColumn::make('jam_mulai')
                     ->label('Jam Mulai')

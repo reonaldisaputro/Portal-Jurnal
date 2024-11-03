@@ -10,7 +10,9 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ColorColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\ColorPicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\MataKuliahResource\Pages;
 use App\Filament\Resources\MataKuliahResource\RelationManagers;
@@ -31,6 +33,8 @@ class MataKuliahResource extends Resource
                 TextInput::make('category')
                     ->label('Kategori')
                     ->required(),
+                ColorPicker::make('color')
+                    ->label('Color')
             ]);
     }
 
@@ -46,6 +50,10 @@ class MataKuliahResource extends Resource
                     ->label('Kategori')
                     ->sortable()
                     ->searchable(),
+                ColorColumn::make('color')
+                    ->copyable()
+                    ->copyMessage('Color code copied')
+                    ->copyMessageDuration(1500),
             ])
             ->filters([
                 //

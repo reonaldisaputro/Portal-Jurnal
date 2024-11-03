@@ -18,7 +18,6 @@ class Jadwal extends Model
         'ruang',
         'jam_mulai',
         'jam_selesai',
-        'link_zoom',
         'is_online',
         'color'
     ];

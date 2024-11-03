@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('ruang');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
-            $table->string('link_zoom')->nullable();
             $table->boolean('is_online');
             $table->string('color')->nullable();
             $table->timestamps();
