@@ -5,6 +5,7 @@ namespace App\Filament\Resources\AuthorResource\Pages;
 use App\Filament\Resources\AuthorResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
 
 class ListAuthors extends ListRecords
 {
@@ -15,5 +16,10 @@ class ListAuthors extends ListRecords
         return [
             Actions\CreateAction::make(),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('id', auth()->user()->author_id);
     }
 }

@@ -55,7 +55,7 @@ class ArticleNewsResource extends Resource
                         'not_featured' => 'Not Featured',
                     ])
                     ->required()
-                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
+                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
                 Forms\Components\TextInput::make('link_pdf')
                     ->activeUrl()
                     ->label('Link PDF')
@@ -91,7 +91,7 @@ class ArticleNewsResource extends Resource
                     ])
                     ->default('pending')
                     ->required()
-                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
+                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
             ]);
     }
 

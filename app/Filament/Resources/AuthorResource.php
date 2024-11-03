@@ -57,8 +57,10 @@ class AuthorResource extends Resource
                     ->maxLength(255),
 
                 Forms\Components\FileUpload::make('avatar')
-                    ->required()
-                    ->image(),
+                    ->label('Avatar')
+                    ->disk('public')
+                    ->image()
+                    ->directory('author_avatar'),
                 Forms\Components\TextInput::make('instagram')
                     ->activeUrl()
                     ->maxLength(255),
@@ -89,7 +91,7 @@ class AuthorResource extends Resource
                 Tables\Columns\ImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('status')
-                    ->label('Status')->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
+                    ->label('Status')->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
                 Tables\Columns\TextColumn::make('angkatan'),
                 Tables\Columns\TextColumn::make('jurusan'),
                 Tables\Columns\TextColumn::make('instagram'),
@@ -126,5 +128,11 @@ class AuthorResource extends Resource
             'create' => Pages\CreateAuthor::route('/create'),
             'edit' => Pages\EditAuthor::route('/{record}/edit'),
         ];
+    }
+
+    // Override getEloquentQuery untuk memfilter data author yang sesuai dengan user yang sedang login
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('id', auth()->user()->author_id);
     }
 }

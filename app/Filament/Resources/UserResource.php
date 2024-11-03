@@ -35,7 +35,7 @@ class UserResource extends Resource
                     ->email()
                     ->unique(ignorable: fn($record) => $record)
                     ->visibleOn('create'),
-                Select::make('roles')->multiple()->relationship('roles', 'name'),
+                Select::make('roles')->relationship('roles', 'name'),
                 TextInput::make('password')
                     ->label('Password')
                     ->required()

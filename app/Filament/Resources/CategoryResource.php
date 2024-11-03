@@ -27,18 +27,18 @@ class CategoryResource extends Resource
             ->schema([
                 //
                 Forms\Components\TextInput::make('name')
-                ->required()
-                // ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
-                // ->live(debounce: 250)
-                ->maxLength(255),
+                    ->required()
+                    // ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                    // ->live(debounce: 250)
+                    ->maxLength(255),
 
                 // Forms\Components\TextInput::make('slug')
                 // ->required()
                 // ->disabled(),
 
                 Forms\Components\FileUpload::make('icon')
-                ->image()
-                ->required(),
+                    ->image()
+                    ->required(),
             ]);
     }
 
@@ -48,7 +48,7 @@ class CategoryResource extends Resource
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('name')
-                ->searchable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\ImageColumn::make('icon'),
             ])
@@ -57,6 +57,7 @@ class CategoryResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

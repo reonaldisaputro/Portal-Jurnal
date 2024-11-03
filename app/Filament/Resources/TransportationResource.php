@@ -2,16 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TransportationResource\Pages;
-use App\Filament\Resources\TransportationResource\RelationManagers;
-use App\Models\Transportation;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Transportation;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TimePicker;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TransportationResource\Pages;
+use App\Filament\Resources\TransportationResource\RelationManagers;
 
 class TransportationResource extends Resource
 {
@@ -23,7 +27,29 @@ class TransportationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('author_id')
+                    ->relationship('author', 'name')
+                    ->label('Author')
+                    ->nullable()
+                    ->searchable(),
+
+                Select::make('day_id')
+                    ->relationship('day', 'name')
+                    ->label('Hari')
+                    ->required()
+                    ->searchable(),
+
+                TimePicker::make('waktu_penjemputan')
+                    ->label('Waktu Penjemputan')
+                    ->required(),
+
+                TextInput::make('lokasi')
+                    ->label('Lokasi')
+                    ->required(),
+
+                TextInput::make('kendaraan')
+                    ->label('Kendaraan')
+                    ->required(),
             ]);
     }
 
@@ -31,13 +57,36 @@ class TransportationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('author.name')
+                    ->label('Author')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('day.name')
+                    ->label('Hari')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('waktu_penjemputan')
+                    ->label('Waktu Penjemputan')
+                    ->sortable(),
+
+                TextColumn::make('lokasi')
+                    ->label('Lokasi')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('kendaraan')
+                    ->label('Kendaraan')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
