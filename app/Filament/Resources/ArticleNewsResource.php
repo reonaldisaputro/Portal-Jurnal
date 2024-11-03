@@ -42,7 +42,9 @@ class ArticleNewsResource extends Resource
                     ->required(),
 
                 Forms\Components\Select::make('author_id')
-                    ->relationship('author', 'name')
+                    ->relationship('author', 'name') // Menggunakan relasi ke 'author' yang didefinisikan di model User
+                    ->default(fn() => auth()->user()->author_id) // Mengambil nilai author_id dari user yang login
+                    ->disabled(fn() => auth()->user()->hasRole('author')) // Nonaktifkan untuk role author jika diperlukan
                     ->searchable()
                     ->preload()
                     ->required(),
@@ -52,7 +54,8 @@ class ArticleNewsResource extends Resource
                         'featured' => 'Featured',
                         'not_featured' => 'Not Featured',
                     ])
-                    ->required(),
+                    ->required()
+                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
                 Forms\Components\TextInput::make('link_pdf')
                     ->activeUrl()
                     ->label('Link PDF')
@@ -87,7 +90,8 @@ class ArticleNewsResource extends Resource
                         'reject' => 'Rejected',
                     ])
                     ->default('pending')
-                    ->required(),
+                    ->required()
+                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
             ]);
     }
 

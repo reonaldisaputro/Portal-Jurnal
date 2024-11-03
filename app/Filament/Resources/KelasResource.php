@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PdfAuthorResource\Pages;
-use App\Filament\Resources\PdfAuthorResource\RelationManagers;
-use App\Models\PdfAuthor;
+use App\Filament\Resources\KelasResource\Pages;
+use App\Filament\Resources\KelasResource\RelationManagers;
+use App\Models\Kelas;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PdfAuthorResource extends Resource
+class KelasResource extends Resource
 {
-    protected static ?string $model = PdfAuthor::class;
+    protected static ?string $model = Kelas::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,16 +23,7 @@ class PdfAuthorResource extends Resource
     {
         return $form
             ->schema([
-                // Forms\Components\Select::make('category_id')
-                //     ->relationship('category', 'name')
-                //     ->searchable()
-                //     ->preload()
-                //     ->required(),
-                // Forms\Components\TextInput::make('link_pdf')
-                //     ->activeUrl()
-                //     ->label('Link PDF')
-                //     ->required()
-                //     ->maxLength(255),
+                //
             ]);
     }
 
@@ -40,10 +31,7 @@ class PdfAuthorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('link_pdf')
-                    ->label('Link PDF'),
-                Tables\Columns\TextColumn::make('category.name')
-                    ->label('Category'),
+                //
             ])
             ->filters([
                 //
@@ -68,9 +56,9 @@ class PdfAuthorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPdfAuthors::route('/'),
-            'create' => Pages\CreatePdfAuthor::route('/create'),
-            'edit' => Pages\EditPdfAuthor::route('/{record}/edit'),
+            'index' => Pages\ListKelas::route('/'),
+            'create' => Pages\CreateKelas::route('/create'),
+            'edit' => Pages\EditKelas::route('/{record}/edit'),
         ];
     }
 }

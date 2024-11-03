@@ -27,6 +27,7 @@ class Author extends Authenticatable // Ubah dari Model menjadi Authenticatable
         'tiktok',
         'linkedin',
         'twitter',
+        'status'
     ];
 
     protected $hidden = [
@@ -43,5 +44,15 @@ class Author extends Authenticatable // Ubah dari Model menjadi Authenticatable
     public function news()
     {
         return $this->hasMany(ArticleNews::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'author_id');
+    }
+
+    public function transportation()
+    {
+        return $this->hasMany(Transportation::class);
     }
 }

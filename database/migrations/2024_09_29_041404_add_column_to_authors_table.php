@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
             $table->string('tiktok')->nullable();
+            $table->enum('status', ['pending', 'accept', 'reject'])->default('pending');
         });
     }
 
@@ -43,6 +44,7 @@ return new class extends Migration
             $table->dropColumn('linkedin');
             $table->dropColumn('twitter');
             $table->dropColumn('tiktok');
+            $table->dropColumn('status');
         });
     }
 };

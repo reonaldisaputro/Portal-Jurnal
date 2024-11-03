@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AuthorResource\Pages;
-use App\Filament\Resources\AuthorResource\RelationManagers;
-use App\Models\Author;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Author;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\AuthorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\AuthorResource\RelationManagers;
 
 class AuthorResource extends Resource
 {
@@ -38,6 +39,14 @@ class AuthorResource extends Resource
                     ->required()
                     ->password()
                     ->visibleOn('create'),
+                Select::make('status')
+                    ->label('Status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'accept' => 'Accept',
+                        'reject' => 'Reject',
+                    ])
+                    ->default('pending'),
                 Forms\Components\TextInput::make('angkatan')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('jurusan')
@@ -79,6 +88,8 @@ class AuthorResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\ImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Status')->visible(fn() => auth()->check() && auth()->user()->hasRole('admin')),
                 Tables\Columns\TextColumn::make('angkatan'),
                 Tables\Columns\TextColumn::make('jurusan'),
                 Tables\Columns\TextColumn::make('instagram'),
