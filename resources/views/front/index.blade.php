@@ -11,7 +11,7 @@
                     {{-- <div class="w-6 h-6 flex shrink-0">
                         <img src="{{ asset('storage/' . $category->icon) }}" alt="icon" />
                     </div> --}}
-                    <span>{{ $category->name }}</span>
+                    <span>{{ $category->name ?? 'Kategori Tidak Ditemukan' }}</span>
                 </a>
             @endforeach
         </nav>
@@ -124,10 +124,17 @@
             </section>
             <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px]">
                 <div class="flex flex-col gap-3 shrink-0 w-full">
-                    <a href="{{ $bannerads->link }}">
+                    <a href="{{ $bannerads->link ?? '#' }}">
                         <div class="w-full h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
-                            <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
-                                alt="ads" />
+                            @if (isset($bannerads->thumbnail))
+                                <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
+                                    alt="ads" />
+                            @else
+                                <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                    class="object-cover w-full h-full" alt="default ads" />
+                            @endif
+
+
                         </div>
                     </a>
                     {{-- <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
@@ -147,16 +154,28 @@
                 </div>
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-                        <img src="{{ Storage::url($entertainment_featured_articles->thumbnail) }}"
-                            class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @if (isset($entertainment_featured_articles->thumbnail))
+                            <img src="{{ Storage::url($entertainment_featured_articles->thumbnail) }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @else
+                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @endif
+
                         <div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
                         </div>
                         <div class="card-detail w-full flex items-end p-[30px] relative z-20">
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
                                 <a href="details.html"
-                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $entertainment_featured_articles->name }}</a>
-                                <p class="text-white">{{ $entertainment_featured_articles->created_at->format('M d, Y') }}
+                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $entertainment_featured_articles->name ?? '' }}</a>
+                                <p class="text-white">
+                                    @if (isset($entertainment_featured_articles->created_at))
+                                        {{ $entertainment_featured_articles->created_at->format('M d, Y') }}
+                                    @else
+                                        Tanggal tidak tersedia
+                                    @endif
+
                                 </p>
                             </div>
                         </div>
@@ -169,8 +188,14 @@
                                     <div
                                         class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                         <div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
-                                            <img src="{{ Storage::url($article->thumbnail) }}"
-                                                class="object-cover w-full h-full" alt="thumbnail" />
+                                            @if (isset($article->thumbnail))
+                                                <img src="{{ Storage::url($article->thumbnail) }}"
+                                                    class="object-cover w-full h-full" alt="thumbnail" />
+                                            @else
+                                                <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                                    class="object-cover w-full h-full" alt="thumbnail" />
+                                            @endif
+
                                         </div>
                                         <div class="flex flex-col justify-center-center gap-[6px]">
                                             <h3 class="font-bold text-lg leading-[27px]">
@@ -203,8 +228,14 @@
                 </div>
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-                        <img src="{{ Storage::url($business_featured_articles->thumbnail) }}"
-                            class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @if (isset($business_featured_articles->thumbnail))
+                            <img src="{{ Storage::url($business_featured_articles->thumbnail) }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @else
+                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @endif
+
                         <div
                             class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
                         </div>
@@ -212,8 +243,14 @@
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
                                 <a href="details.html"
-                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $business_featured_articles->name }}</a>
-                                <p class="text-white">{{ $business_featured_articles->created_at->format('M d, Y') }}</p>
+                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $business_featured_articles->name ?? '' }}</a>
+                                @if (isset($business_featured_articles->created_at))
+                                    <p class="text-white">{{ $business_featured_articles->created_at->format('M d, Y') }}
+                                    </p>
+                                @else
+                                    Tanggal tidak tersedia
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -258,8 +295,14 @@
                 </div>
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-                        <img src="{{ Storage::url($automotive_featured_articles->thumbnail) }}"
-                            class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @if (isset($automotive_featured_articles->thumbnail))
+                            <img src="{{ Storage::url($automotive_featured_articles->thumbnail) }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @else
+                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                        @endif
+
                         <div
                             class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
                         </div>
@@ -267,8 +310,14 @@
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
                                 <a href="details.html"
-                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $automotive_featured_articles->name }}</a>
-                                <p class="text-white">{{ $automotive_featured_articles->created_at->format('M d, Y') }}
+                                    class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $automotive_featured_articles->name ?? '' }}</a>
+                                @if (isset($automotive_featured_articles->created_at))
+                                    <p class="text-white">
+                                        {{ $automotive_featured_articles->created_at->format('M d, Y') }}
+                                    @else
+                                        Tanggal tidak tersedia
+                                @endif
+
                                 </p>
                             </div>
                         </div>

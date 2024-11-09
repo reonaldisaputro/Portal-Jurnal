@@ -46,7 +46,8 @@ class AuthorResource extends Resource
                         'accept' => 'Accept',
                         'reject' => 'Reject',
                     ])
-                    ->default('pending'),
+                    ->default('pending')
+                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
                 Forms\Components\TextInput::make('angkatan')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('jurusan')
@@ -130,9 +131,14 @@ class AuthorResource extends Resource
         ];
     }
 
-    // Override getEloquentQuery untuk memfilter data author yang sesuai dengan user yang sedang login
     public static function getEloquentQuery(): Builder
     {
+        // Jika user adalah super_admin, tampilkan semua data tanpa filter
+        if (auth()->check() && auth()->user()->hasRole('super_admin')) {
+            return parent::getEloquentQuery();
+        }
+
+        // Jika bukan super_admin, tampilkan hanya data author yang sesuai dengan user yang login
         return parent::getEloquentQuery()->where('id', auth()->user()->author_id);
     }
 }

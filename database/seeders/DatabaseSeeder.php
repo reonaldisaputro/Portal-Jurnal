@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MataKuliahSeeder::class,
             JadwalSeeder::class,
             TransportationSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

@@ -33,8 +33,7 @@ class UserResource extends Resource
                     ->label('Email')
                     ->required()
                     ->email()
-                    ->unique(ignorable: fn($record) => $record)
-                    ->visibleOn('create'),
+                    ->unique(ignorable: fn($record) => $record),
                 Select::make('roles')->relationship('roles', 'name'),
                 TextInput::make('password')
                     ->label('Password')
