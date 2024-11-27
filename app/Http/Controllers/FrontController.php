@@ -151,7 +151,7 @@ class FrontController extends Controller
         // Mencari artikel berdasarkan keyword dan hanya menampilkan yang statusnya 'active'
         $articles = ArticleNews::with(['category', 'author'])
             ->where('name', 'like', '%' . $keyword . '%')
-            ->where('status', 'active') // Tambahkan filter hanya untuk artikel dengan status 'active'
+            ->where('status', 'accept') // Tambahkan filter hanya untuk artikel dengan status 'active'
             ->paginate(6);
 
         return view('front.search', compact('articles', 'keyword', 'categories'));
@@ -168,6 +168,7 @@ class FrontController extends Controller
         $articles = ArticleNews::with(['category'])
             ->where('is_featured', 'not_featured')
             ->where('id', '!=', $articleNews->id)
+            ->where('status', 'accept') // Tambahkan filter
             ->latest()
             ->take(3)
             ->get();
@@ -195,8 +196,13 @@ class FrontController extends Controller
 
         $author_news = ArticleNews::where('author_id', $articleNews->author_id)
             ->where('id', '!=', $articleNews->id)
+            ->where('status', 'accept') // Tambahkan filter
             ->inRandomOrder()
             ->get();
+
+        if ($articleNews->status !== 'accept') {
+            abort(404); // Mengembalikan halaman 404 jika artikel tidak diterima
+        }
 
         return view('front.details', compact('articleNews', 'categories', 'articles', 'bannerads', 'square_ads_1', 'square_ads_2', 'author_news'));
     }

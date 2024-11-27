@@ -41,13 +41,19 @@ class ArticleNewsResource extends Resource
                     ->preload()
                     ->required(),
 
-                Forms\Components\Select::make('author_id')
-                    ->relationship('author', 'name') // Menggunakan relasi ke 'author' yang didefinisikan di model User
-                    ->default(fn() => auth()->user()->author_id) // Mengambil nilai author_id dari user yang login
-                    ->disabled(fn() => auth()->user()->hasRole('author')) // Nonaktifkan untuk role author jika diperlukan
-                    ->searchable()
-                    ->preload()
-                    ->required(),
+                // Forms\Components\Select::make('author_id')
+                //     ->relationship('author', 'name')
+                //     ->default(fn() => auth()->user()->author_id)
+                //     ->hidden(fn() => auth()->user()->hasRole('author'))
+                //     // ->disabled(fn() => auth()->user()->hasRole('author'))
+                //     // ->visible(fn() => auth()->user()->hasRole('super_admin'))
+                //     ->required()
+                //     ->searchable()
+                //     ->preload(),
+
+                Forms\Components\Hidden::make('author_id')
+                    ->default(fn() => auth()->check() ? auth()->user()->author_id : null),
+
 
                 Forms\Components\Select::make('is_featured')
                     ->options([
@@ -145,6 +151,20 @@ class ArticleNewsResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->check() && auth()->user()->hasRole('super_admin')) {
+            return parent::getEloquentQuery();
+        }
+
+        if (auth()->check() && !empty(auth()->user()->author_id)) {
+            return parent::getEloquentQuery()->where('author_id', auth()->user()->author_id);
+        }
+
+        // Default: Jika tidak memenuhi syarat, kembalikan query kosong
+        return parent::getEloquentQuery()->whereRaw('1 = 0');
     }
 
     public static function getPages(): array

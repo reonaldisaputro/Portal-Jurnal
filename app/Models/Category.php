@@ -24,8 +24,8 @@ class Category extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function news(): HasMany
+    public function news()
     {
-        return $this->hasMany(ArticleNews::class);
+        return $this->hasMany(ArticleNews::class)->where('status', 'accept');
     }
 }

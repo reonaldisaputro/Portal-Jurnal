@@ -43,7 +43,7 @@ class Author extends Authenticatable // Ubah dari Model menjadi Authenticatable
 
     public function news()
     {
-        return $this->hasMany(ArticleNews::class);
+        return $this->hasMany(ArticleNews::class)->where('status', 'accept');
     }
 
     public function user()
