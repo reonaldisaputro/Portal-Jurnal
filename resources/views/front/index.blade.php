@@ -106,9 +106,15 @@
                         <a href="{{ route('front.author', $author->slug) }}" class="card-authors">
                             <div
                                 class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-                                <div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
-                                    <img src="{{ asset('storage/' . $author->avatar) }}" class="object-cover w-full h-full"
-                                        alt="avatar" />
+                                <div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden bg-gray-200">
+                                    @if ($author->avatar)
+                                        <img src="{{ asset('storage/' . $author->avatar) }}"
+                                            class="object-cover w-full h-full" alt="avatar" />
+                                    @else
+                                        <div class="flex items-center justify-center w-full h-full">
+                                            <i class="text-gray-500 text-xl fas fa-user"></i>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="flex flex-col gap-1 text-center">
                                     <p class="font-semibold">{{ $author->name }}</p>
@@ -167,7 +173,7 @@
                         <div class="card-detail w-full flex items-end p-[30px] relative z-20">
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
-                                <a href="details.html"
+                                <a href="{{ route('front.details', $entertainment_featured_articles->slug) }}"
                                     class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $entertainment_featured_articles->name ?? '' }}</a>
                                 <p class="text-white">
                                     @if (isset($entertainment_featured_articles->created_at))
@@ -242,7 +248,7 @@
                         <div class="card-detail w-full flex items-end p-[30px] relative z-20">
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
-                                <a href="details.html"
+                                <a href="{{ route('front.details', $business_featured_articles->slug) }}"
                                     class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $business_featured_articles->name ?? '' }}</a>
                                 @if (isset($business_featured_articles->created_at))
                                     <p class="text-white">{{ $business_featured_articles->created_at->format('M d, Y') }}
@@ -309,7 +315,7 @@
                         <div class="card-detail w-full flex items-end p-[30px] relative z-20">
                             <div class="flex flex-col gap-[10px]">
                                 <p class="text-white">Featured</p>
-                                <a href="details.html"
+                                <a href="{{ route('front.details', $automotive_featured_articles->slug) }}"
                                     class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $automotive_featured_articles->name ?? '' }}</a>
                                 @if (isset($automotive_featured_articles->created_at))
                                     <p class="text-white">
