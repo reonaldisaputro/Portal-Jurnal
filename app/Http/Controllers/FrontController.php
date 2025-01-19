@@ -206,4 +206,9 @@ class FrontController extends Controller
 
         return view('front.details', compact('articleNews', 'categories', 'articles', 'bannerads', 'square_ads_1', 'square_ads_2', 'author_news'));
     }
+
+    public function news()
+{
+    return view('front.news');
+}
 }

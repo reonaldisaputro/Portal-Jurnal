@@ -16,7 +16,7 @@
     <div id="menu" class="hidden md:flex md:gap-[30px] items-center">
         <a href="{{ route('front.index') }}" class="text-white font-bold hover:underline">Beranda</a>
 
-        <p class="text-white font-bold">Berita</p>
+        <a class="text-white font-bold" href="{{ route('front.news') }}">Berita</a>
 
         <p class="text-white font-bold">Tentang PKU</p>
         <p class="text-white font-bold">Akademik</p>
@@ -55,7 +55,7 @@
 
     <div class="flex flex-col items-start gap-4">
         <a href="{{ route('front.index') }}" class="text-[#1A143C] font-bold">Beranda</a>
-        <a class="text-[#1A143C] font-bold">Jurnal Kategori</a>
+        <a class="text-[#1A143C] font-bold" href="{{ route('front.news') }}">Berita</a>
         <p class="text-[#1A143C] font-bold">Penulis</p>
         {{-- <p class="text-[#1A143C] font-bold">Universitas</p> --}}
         <form method="GET" action="{{ route('front.search') }}"

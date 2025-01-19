@@ -13,28 +13,28 @@
             </ul>
         </div>
         <div>
-            <h2 class="font-bold text-xl text-[#2563EB]">Navigasi</h2>
-            <ul class=" font-thin ">
+            <h2 class="font-bold text-xl text-[#2563EB] mb-2">Navigasi</h2>
+            <ul class=" font-thin text-sm">
                 <li><a href="{{ route('front.index') }}" class="hover:underline">Beranda</a></li>
-                <li>Jurnal Kategori</li>
+                <li class="my-2">Jurnal Kategori</li>
                 <li>Penulis & universitas</li>
             </ul>
         </div>
         <div>
-            <h3 class="font-bold text-xl text-[#2563EB]">Jurnal Terbaru</h3>
-            <ul class=" font-thin ">
+            <h3 class="font-bold text-xl text-[#2563EB] mb-2">Jurnal Terbaru</h3>
+            <ul class=" font-thin text-sm">
                 <li>Pentingnya Literasi Digital bagi ulama Muda di Era Modern</li>
-                <li>Dampak Ekonomi Syariah terhadap Pertumbuhan UMKM di Indonesia</li>
+                <li class="my-2">Dampak Ekonomi Syariah terhadap Pertumbuhan UMKM di Indonesia</li>
                 <li>Perkembangan Bank Syariah di Indonesia Pasca Pandemi</li>
             </ul>
 
         </div>
         <div>
-            <h2 class="font-bold text-xl text-[#2563EB]">Kontak Kami</h2>
-            <ul class=" ">
+            <h2 class="font-bold text-xl text-[#2563EB] mb-2">Kontak Kami</h2>
+            <ul class="text-sm">
                 <li><span class="font-bold">Alamat: </span>Masjid Istiqlal, Jl.Taman Wijaya Kusuma, Jakarta Pusat,
                     Indonesia</li>
-                <li><span class="font-bold">Email: </span>info@pkumi.ac.id</li>
+                <li class="my-2"><span class="font-bold">Email: </span>info@pkumi.ac.id</li>
                 <li><span class="font-bold">Telepon: </span>+62 21 1234567</li>
             </ul>
         </div>
