@@ -18,7 +18,7 @@
 
         <a class="text-white font-bold" href="{{ route('front.news') }}">Berita</a>
 
-        <p class="text-white font-bold">Tentang PKU</p>
+        <a class="text-white font-bold" href="{{ route('front.about') }}">Tentang PKU</a>
         <p class="text-white font-bold">Akademik</p>
         <p class="text-white font-bold">Penelitian</p>
         <p class="text-white font-bold">Galeri</p>

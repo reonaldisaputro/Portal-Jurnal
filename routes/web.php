@@ -13,6 +13,7 @@ Route::get('/category/{category:slug}', [FrontController::class, 'category'])->n
 Route::get('/author/{author:slug}', [FrontController::class, 'author'])->name('front.author');
 Route::get('/search', [FrontController::class, 'search'])->name('front.search');
 Route::get('/news', [FrontController::class, 'news'])->name('front.news');
+Route::get('/about', [FrontController::class, 'about'])->name('front.about');
 
 
 // Route::get('/author/create', [AuthorController::class, 'create'])->name('author.create');

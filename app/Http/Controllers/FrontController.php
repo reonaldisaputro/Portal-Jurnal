@@ -208,7 +208,12 @@ class FrontController extends Controller
     }
 
     public function news()
-{
+    {
     return view('front.news');
-}
+    }
+
+    public function about()
+    {
+    return view('front.about');
+    }
 }
