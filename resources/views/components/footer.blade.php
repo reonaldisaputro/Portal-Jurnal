@@ -1,5 +1,5 @@
 <footer class="bg-white pt-10 md:pt-20 pb-10 md:pb-20">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-20">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 container mx-auto">
         <div class="space-y-4">
             <a href="{{ route('front.index') }}" class="flex shrink-0">
                 <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" class="w-32 md:w-auto" />

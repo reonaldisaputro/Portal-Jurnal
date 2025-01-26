@@ -4,7 +4,7 @@
     <body class="font-[Poppins]" style="background-image: url('{{ asset('assets/images/thumbnails/headers.png') }}')">
         <x-navbar/>
 
-        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto px-4">
+        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto container">
             <div>
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
                 <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang

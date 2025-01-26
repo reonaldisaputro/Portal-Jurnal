@@ -3,7 +3,7 @@
 
     <body class="font-[Poppins]" style="background-image: url('{{ asset('assets/images/thumbnails/headers.png') }}')">
         <x-navbar />
-        <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
+        <nav id="Category" class="max-w-[1130px] container mx-auto grid md:grid-cols-3 gap-4 mt-[30px]">
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
@@ -16,7 +16,7 @@
             @endforeach
         </nav>
 
-        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto px-4">
+        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto container">
             <div>
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
                 <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang
@@ -27,7 +27,7 @@
             <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
         </div>
         <div
-            class="grid grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center px-10 mx-auto max-w-[1050px] py-3 shadow-lg">
+            class="grid container mx-auto grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center max-w-[1050px] py-3 shadow-lg">
             <div class="font-semibold ">
                 <p class="text-2xl">Pendidikan Kader</p>
                 <p class="text-2xl">Ulama Masjid Istiqlal</p>

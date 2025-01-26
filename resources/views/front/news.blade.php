@@ -4,7 +4,7 @@
     <body class="font-[Poppins]" style="background-image: url('{{ asset('assets/images/thumbnails/headers.png') }}')">
         <x-navbar />
 
-        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto px-4">
+        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto container">
             <div>
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
                 <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang
@@ -15,7 +15,7 @@
             <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
         </div>
         <div
-            class="grid grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center px-10 mx-auto max-w-[1050px] py-3 shadow-lg">
+            class="grid grid-cols-1 container mx-auto lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center px-10 mx-auto max-w-[1050px] py-3 shadow-lg">
             <div class="font-semibold ">
                 <p class="text-2xl">Pendidikan Kader</p>
                 <p class="text-2xl">Ulama Masjid Istiqlal</p>
@@ -31,8 +31,10 @@
             <img class="" src="{{ asset('assets/images/photos/pku.png') }}" alt="">
         </div>
 
-        <div class="bg-white pt-20 container mx-auto">
-            <div
+        <div class="bg-white pt-20">
+            <div class="container mx-auto">
+
+                <div
                 class="flex items-center justify-center gap-4 sm:gap-10 bg-[#F5F5F5] py-3 rounded-xl flex-wrap">
                 <a class="text-white bg-[#2563EB] px-5 py-2 rounded-xl" href="">Akidah</a>
                 <a class="text-white bg-[#2563EB] px-5 py-2 rounded-xl" href="">Akidah</a>
@@ -41,9 +43,10 @@
                 <a class="text-white bg-[#2563EB] px-5 py-2 rounded-xl" href="">Akidah</a>
             </div>
         </div>
+        </div>
 
         <div class="bg-white pt-20">
-            <div class="flex justify-between items-center container">
+            <div class="flex justify-between items-center container mx-auto">
                 <p>New Posts</p>
                 <a class="bg-[#F5F5F5] px-3 py-2 rounded-md">
                     <p>Show All</p>
@@ -113,7 +116,7 @@
 
         <div class="bg-white pt-20">
             <div class="h-max pb-4">
-                <div class="flex justify-between items-center container">
+                <div class="flex justify-between items-center container mx-auto">
                     <p>Artikel Baru</p>
                     <a class="bg-[#F5F5F5] px-3 py-2 rounded-md">
                         <p>Show All</p>
@@ -122,7 +125,7 @@
             </div>
             <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-3">
 
-                <div class="bg-white shadow-xl w-full rounded-lg flex gap-3 p-3">
+                <div class="bg-white shadow-xl w-full rounded-lg flex lg:flex-row flex-col gap-3 p-3">
                     <img src="{{ asset('assets/images/thumbnails/artikel-news.png') }}" alt=""
                         class="rounded-lg">
                     <div>
@@ -143,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white shadow-xl w-full rounded-lg flex gap-3 p-3">
+                <div class="bg-white shadow-xl w-full rounded-lg flex lg:flex-row flex-col gap-3 p-3">
                     <img src="{{ asset('assets/images/thumbnails/artikel-news.png') }}" alt=""
                         class="rounded-lg">
                     <div>
@@ -164,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white shadow-xl w-full rounded-lg flex gap-3 p-3">
+                <div class="bg-white shadow-xl w-full rounded-lg flex lg:flex-row flex-col gap-3 p-3">
                     <img src="{{ asset('assets/images/thumbnails/artikel-news.png') }}" alt=""
                         class="rounded-lg">
                     <div class="">
@@ -189,7 +192,7 @@
         </div>
 
         <div class="bg-white pt-20 pb-4">
-            <div class="flex justify-between items-center mx-20 pt-10">
+            <div class="flex justify-between items-center container mx-auto pt-10">
                 <p>Video Terbaru</p>
                 <a class="bg-[#F5F5F5] px-3 py-2 rounded-md">
                     <p>Show All</p>
@@ -286,7 +289,7 @@
         </div>
 
         <div class="bg-white">
-            <div class="flex justify-between items-center mx-20 pt-10">
+            <div class="flex justify-between items-center container mx-auto pt-10">
                 <p>Trendy Posts</p>
                 <a class="bg-[#F5F5F5] px-3 py-2 rounded-md">
                     <p>Show All</p>
