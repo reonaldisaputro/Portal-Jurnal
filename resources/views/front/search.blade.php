@@ -25,21 +25,18 @@
 				Explore Hot Trending <br />
 				Good News Today
 			</h1>
-			<form action="{{route('front.search')}}" method="GET">
-				<label for="search-bar" class="w-[500px] flex p-[12px_20px] transition-all duration-300 gap-[10px] ring-1 ring-[#E8EBF4] focus-within:ring-2 focus-within:ring-[#FF6B18] rounded-[50px] group">
-					<div class="w-5 h-5 flex shrink-0">
-						<img src="assets/images/icons/search-normal.svg" alt="icon" />
-					</div>
-					<input
-						autocomplete="off"
-						type="text"
-						id="search-bar"
-						name="keyword"
-						placeholder="Search hot trendy news today..."
-						class="appearance-none font-semibold placeholder:font-normal placeholder:text-[#A3A6AE] outline-none focus:ring-0 w-full"
-					/>
-				</label>
-			</form>
+			<div class="px-4 md:px-20 py-8">
+				<form method="GET" action="{{ route('front.search') }}" 
+					class="w-full md:w-[450px] flex items-center rounded-full border border-[#E8EBF4] p-3 md:p-[12px_20px] gap-[10px]">
+					@csrf
+					<button type="submit" class="w-5 h-5 flex shrink-0">
+						<img src="{{ asset('assets/images/icons/search-normal.svg') }}" alt="icon" />
+					</button>
+					<input type="text" name="keyword" 
+						class="w-full text-sm md:text-base appearance-none outline-none font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
+						placeholder="Cari artikel atau berita..." />
+				</form>
+			</div>
 		</section>
 		<section id="search-result" class="max-w-[1130px] mx-auto flex items-start flex-col gap-[30px] mt-[70px] mb-[100px]">
 			<h2 class="text-[26px] leading-[39px] font-bold">Search Result: <span>{{ucfirst($keyword)}}</span></h2>

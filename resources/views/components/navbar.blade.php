@@ -1,24 +1,22 @@
-<nav id="Navbar" class="w-max my-10 mx-auto px-5 py-2 flex justify-between items-center rounded-lg h-max">
-    <div class="logo-container flex gap-[30px] items-center">
+<nav id="Navbar" class="w-full md:w-max my-5 md:my-10 md:mx-auto px-3 md:px-5 py-2 flex justify-between items-center rounded-lg h-max">
+    <div class="logo-container flex gap-[15px] md:gap-[30px] items-center">
         <a href="{{ route('front.index') }}" class="flex shrink-0">
-            <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" />
+            <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" class="w-24 md:w-auto" />
         </a>
     </div>
 
-    <!-- Burger Button (hidden on large screens, visible on mobile) -->
-    <button id="burger-button" class="md:hidden flex flex-col gap-1">
+    <!-- Mobile Menu Button -->
+    <button id="burger-button" class="lg:hidden flex flex-col gap-1">
         <span class="block w-6 h-0.5 bg-[#1A143C]"></span>
         <span class="block w-6 h-0.5 bg-[#1A143C]"></span>
         <span class="block w-6 h-0.5 bg-[#1A143C]"></span>
     </button>
 
-    <!-- Navigation Links (hidden on mobile, shown on larger screens) -->
-    <div id="menu" class="hidden md:flex md:gap-[30px] items-center">
-        <a href="{{ route('front.index') }}" class="text-white font-bold hover:underline">Beranda</a>
-
-        <a class="text-white font-bold" href="{{ route('front.news') }}">Berita</a>
-
-        <a class="text-white font-bold" href="{{ route('front.about') }}">Tentang PKU</a>
+    <!-- Navigation Links -->
+    <div id="menu" class="hidden lg:flex md:gap-[30px] items-center absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 shadow-lg md:shadow-none">
+        <a href="{{ route('front.index') }}" class="block md:inline text-[#1A143C] md:text-white font-bold hover:underline py-2 md:py-0">Beranda</a>
+        <a class="block md:inline text-[#1A143C] md:text-white font-bold py-2 md:py-0" href="{{ route('front.news') }}">Berita</a>
+        <a class="block md:inline text-[#1A143C] md:text-white font-bold py-2 md:py-0" href="{{ route('front.about') }}">Tentang PKU</a>
         <p class="text-white font-bold">Akademik</p>
         <p class="text-white font-bold">Penelitian</p>
         <p class="text-white font-bold">Galeri</p>

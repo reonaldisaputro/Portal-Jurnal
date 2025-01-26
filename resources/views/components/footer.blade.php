@@ -1,11 +1,11 @@
-<footer class="bg-white pt-20 pb-20">
-    <div class="flex gap-5 px-20">
-        <div>
+<footer class="bg-white pt-10 md:pt-20 pb-10 md:pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-20">
+        <div class="space-y-4">
             <a href="{{ route('front.index') }}" class="flex shrink-0">
-                <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" />
+                <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" class="w-32 md:w-auto" />
             </a>
-            <p class="my-3">Clarity gives you the blocks and components you need to create a truly professional website.</p>
-            <ul class="font-thin  pl-2 flex gap-5 text-black">
+            <p class="text-sm md:text-base">Clarity gives you the blocks and components you need to create a truly professional website.</p>
+            <ul class="flex flex-wrap gap-4 text-sm md:text-base">
                 <li>Facebook</li>
                 <li>Instagram</li>
                 <li>Linkedin</li>

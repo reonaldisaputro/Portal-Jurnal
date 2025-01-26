@@ -4,11 +4,11 @@
     <body class="font-[Poppins]">
         <x-navbar></x-navbar>
 
-        <div class="flex px-32 gap-3">
-            <div class="w-4/6">
+        <div class="flex flex-col md:flex-row gap-6 px-4 md:px-20 py-8">
+            <div class="w-full md:w-4/6">
                 <div class="bg-[#F5F5F5] rounded-lg p-3">
                     <img class="rounded-lg" src="{{ asset('assets/images/thumbnails/detailsnews.png') }}" alt="">
-                    <p class="text-3xl font-semibold">Keesaan Allah Ta’ala merujuk pada keyakinan bahwa hanya ada satu Tuhan yang Maha Esa</p>
+                    <p class="text-3xl font-semibold">Keesaan Allah Ta'ala merujuk pada keyakinan bahwa hanya ada satu Tuhan yang Maha Esa</p>
                 </div>
                 <div class="flex items-center justify-center gap-5 my-7 text-[#3E3232BF] text-sm">
                     <div>
@@ -23,53 +23,55 @@
                 </div>
                 <div>
                     <p class="text-xl font-semibold">Tauhid Adalah Hak Allah Yang Paling Agung</p>
-                    <p class="my-3 leading-loose">Mengesakan Allah dalam hal ini merupakah hak Allah Subhanahu wa Ta’ala, hak Allah terhadap hambaNya. Yaitu agar hambaNya mengesakan Allah Subhanahu wa Ta’ala. Dan wajib bagi seorang hamba untuk mengesakan Allah dalam hal tersebut dan tidak menjadikan sesuatu daripada ibadah itu dia peruntukan kepada sesuatu selain Allah. Seorang tidak boleh berdoa kepada selain Allah, seseorang tidak boleh minta pertolongan dan bantuan kepada selain Allah, seseorang tidak boleh menyembelih untuk selain Allah, seseorang tidak boleh bernadzar kepada selain Allah Subhanahu wa Ta’ala. Karena semua itu adalah ketaatan dan ibadah. Ketaatan harus satu-satunya untuk Allah dan ibadah semuanya harus untuk Allah Subhanahu wa Ta’ala.</p>
+                    <p class="my-3 leading-loose">Mengesakan Allah dalam hal ini merupakah hak Allah Subhanahu wa Ta'ala, hak Allah terhadap hambaNya. Yaitu agar hambaNya mengesakan Allah Subhanahu wa Ta'ala. Dan wajib bagi seorang hamba untuk mengesakan Allah dalam hal tersebut dan tidak menjadikan sesuatu daripada ibadah itu dia peruntukan kepada sesuatu selain Allah. Seorang tidak boleh berdoa kepada selain Allah, seseorang tidak boleh minta pertolongan dan bantuan kepada selain Allah, seseorang tidak boleh menyembelih untuk selain Allah, seseorang tidak boleh bernadzar kepada selain Allah Subhanahu wa Ta'ala. Karena semua itu adalah ketaatan dan ibadah. Ketaatan harus satu-satunya untuk Allah dan ibadah semuanya harus untuk Allah Subhanahu wa Ta'ala.</p>
                     <img class="rounded-xl px-10" src="{{ asset('assets/images/thumbnails/detailsnews.png') }}" alt="">
                     <p class="text-xl font-semibold mt-4">Tauhid Adalah Hak Allah Yang Paling Agung</p>
-                    <p class="my-3 leading-loose">Mengesakan Allah dalam hal ini merupakah hak Allah Subhanahu wa Ta’ala, hak Allah terhadap hambaNya. Yaitu agar hambaNya mengesakan Allah Subhanahu wa Ta’ala. Dan wajib bagi seorang hamba untuk mengesakan Allah dalam hal tersebut dan tidak menjadikan sesuatu daripada ibadah itu dia peruntukan kepada sesuatu selain Allah. Seorang tidak boleh berdoa kepada selain Allah, seseorang tidak boleh minta pertolongan dan bantuan kepada selain Allah, seseorang tidak boleh menyembelih untuk selain Allah, seseorang tidak boleh bernadzar kepada selain Allah Subhanahu wa Ta’ala. Karena semua itu adalah ketaatan dan ibadah. Ketaatan harus satu-satunya untuk Allah dan ibadah semuanya harus untuk Allah Subhanahu wa Ta’ala.</p>
+                    <p class="my-3 leading-loose">Mengesakan Allah dalam hal ini merupakah hak Allah Subhanahu wa Ta'ala, hak Allah terhadap hambaNya. Yaitu agar hambaNya mengesakan Allah Subhanahu wa Ta'ala. Dan wajib bagi seorang hamba untuk mengesakan Allah dalam hal tersebut dan tidak menjadikan sesuatu daripada ibadah itu dia peruntukan kepada sesuatu selain Allah. Seorang tidak boleh berdoa kepada selain Allah, seseorang tidak boleh minta pertolongan dan bantuan kepada selain Allah, seseorang tidak boleh menyembelih untuk selain Allah, seseorang tidak boleh bernadzar kepada selain Allah Subhanahu wa Ta'ala. Karena semua itu adalah ketaatan dan ibadah. Ketaatan harus satu-satunya untuk Allah dan ibadah semuanya harus untuk Allah Subhanahu wa Ta'ala.</p>
                 </div>
-                <div class="my-32">
-                    <p class="font-semibold mt-10 mb-5">Comments</p>
-                    <div class="bg-[#F5F5F5] p-5 rounded-xl shadow-xl">
-                        <div class="flex items-center justify-between bg-[#F5F5F5] rounded-lg p-2">
-                            <div class="flex items-center gap-4">
-                                
-                                <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
-                                <div>
-                                    <p>Aisha Rahman</p>
-                                    <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
+                <div class="my-8 md:my-32">
+                    <p class="font-semibold mt-6 mb-4">Comments</p>
+                    <div class="space-y-4">
+                        <div class="bg-[#F5F5F5] p-5 rounded-xl shadow-xl">
+                            <div class="flex items-center justify-between bg-[#F5F5F5] rounded-lg p-2">
+                                <div class="flex items-center gap-4">
+                                    
+                                    <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
+                                    <div>
+                                        <p>Aisha Rahman</p>
+                                        <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
+                                    </div>
+                                </div>
+                                <p class="font-semibold">Reply</p>
+                            </div>
+                            <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort's on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-xl">
+                            <div class="flex items-center justify-between bg-white rounded-lg p-2">
+                                <div class="flex items-center gap-4">
+                                    
+                                    <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
+                                    <div>
+                                        <p>Aisha Rahman</p>
+                                        <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
+                                    </div>
                                 </div>
                             </div>
-                            <p class="font-semibold">Reply</p>
+                            <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort's on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
                         </div>
-                        <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort’s on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-xl shadow-xl">
-                        <div class="flex items-center justify-between bg-white rounded-lg p-2">
-                            <div class="flex items-center gap-4">
-                                
-                                <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
-                                <div>
-                                    <p>Aisha Rahman</p>
-                                    <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
+                        <div class="bg-[#F5F5F5] p-5 rounded-xl">
+                            <div class="flex items-center justify-between bg-[#F5F5F5] rounded-lg p-2">
+                                <div class="flex items-center gap-4">
+                                    
+                                    <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
+                                    <div>
+                                        <p>Aisha Rahman</p>
+                                        <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
+                                    </div>
                                 </div>
+                                <p class="font-semibold">Reply</p>
                             </div>
+                            <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort's on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
                         </div>
-                        <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort’s on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
-                    </div>
-                    <div class="bg-[#F5F5F5] p-5 rounded-xl">
-                        <div class="flex items-center justify-between bg-[#F5F5F5] rounded-lg p-2">
-                            <div class="flex items-center gap-4">
-                                
-                                <img src="{{ asset('assets/images/photos/photo.png') }}" alt="" class="w-12">
-                                <div>
-                                    <p>Aisha Rahman</p>
-                                    <p class="text-[#3E3232BF] text-xs">20 Agustus 2023</p>
-                                </div>
-                            </div>
-                            <p class="font-semibold">Reply</p>
-                        </div>
-                        <p class="text-sm">When you are ready to indulge your sense of excitement, check out the range of water- sports opportunities at the resort’s on-site water-sports center. Want to leave your stress on the water? The resort has kayaks, paddleboards, or the low-key pedal boats.</p>
                     </div>
                 </div>
                 <div>
@@ -90,7 +92,7 @@
                     </form>
                 </div>
             </div>
-            <div class="w-2/6">
+            <div class="w-full md:w-2/6 space-y-4">
                 <div class="flex items-center gap-2 mb-5">
                     <p class="text-sm bg-[#F5F5F5] p-2 rounded-lg">Bagikan</p>
                     <p class="text-sm bg-[#F5F5F5] p-2 rounded-lg">Penandaan</p>

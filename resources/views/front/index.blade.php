@@ -16,133 +16,170 @@
             @endforeach
         </nav>
 
-        <div class="flex gap-5 items-center mx-64">
+        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto px-4">
             <div>
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
-                <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang bertujuan untuk melahirkan calon ulama berkualitas dengan kurikulum yang terintegrasi dan inovatif. Program ini memberikan kesempatan untuk belajar dari para pengajar berpengalaman, menawarkan beasiswa S-2, serta membangun jaringan alumni yang solid.</p>
+                <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang
+                    bertujuan untuk melahirkan calon ulama berkualitas dengan kurikulum yang terintegrasi dan inovatif.
+                    Program ini memberikan kesempatan untuk belajar dari para pengajar berpengalaman, menawarkan beasiswa
+                    S-2, serta membangun jaringan alumni yang solid.</p>
             </div>
             <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
         </div>
-        <div class="flex bg-white rounded-xl items-center justify-evenly mx-64 py-3 shadow-lg">
-            <div class="font-semibold">
+        <div
+            class="grid grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center px-10 mx-auto max-w-[1050px] py-3 shadow-lg">
+            <div class="font-semibold ">
                 <p class="text-2xl">Pendidikan Kader</p>
                 <p class="text-2xl">Ulama Masjid Istiqlal</p>
             </div>
-            <div>
+            <div class="">
                 <p class="font-semibold text-2xl">107</p>
                 <p>Mahasiswa Aktif</p>
             </div>
-            <div>
+            <div class="">
                 <p class="font-semibold text-2xl">12</p>
                 <p>Dosen Berpengalaman</p>
             </div>
-            <img src="{{ asset('assets/images/photos/pku.png') }}" alt="">
+            <img class="" src="{{ asset('assets/images/photos/pku.png') }}" alt="">
         </div>
 
-        <div class="bg-white flex items-center gap-5 px-64 py-32">
-            <img src="{{ asset('assets/images/thumbnails/pkuimg.jpg') }}" alt="" class="rounded-xl">
-            <div>
-                <p class="text-4xl font-bold text-[#007AFF]">About US</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero hic iusto adipisci, impedit officiis dolores beatae est voluptatum eum delectus corrupti ipsa dicta dolore? Minus vero corrupti eius voluptates!</p>
-            </div>
-        </div>
+        <div class="bg-white py-32">
+            <div class="container mx-auto flex flex-col lg:flex-row items-center gap-5">
 
-        <div class="bg-white px-20">
-            <p class="text-4xl font-bold text-[#007AFF] mb-7">Berita Terbaru</p>
-            <div class="">
-                <div class="grid grid-cols-4">
-                    <a class="relative w-[20rem] bg-[#007AFF] rounded-lg" href="{{ route('front.details-news') }}">
-                        <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                        <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                        <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="24" fill="#007AFF"/>
-                            <path d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
-                            </svg>
-                    </a>
-                    <div class="relative w-[20rem] bg-[#007AFF] rounded-lg" >
-                        <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                        <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                        <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="24" fill="#007AFF"/>
-                            <path d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
-                            </svg>
-                    </div>
-                    <div class="relative w-[20rem] bg-[#007AFF] rounded-lg" >
-                        <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                        <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                        <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="24" fill="#007AFF"/>
-                            <path d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
-                            </svg>
-                    </div>
-                    <div class="relative w-[20rem] bg-[#007AFF] rounded-lg" >
-                        <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                        <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                        <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="24" fill="#007AFF"/>
-                            <path d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z" fill="white"/>
-                            </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white px-32 py-56">
-            <div class="bg-[#007AFF] rounded-lg flex items-center px-10 py-10">
+                <img src="{{ asset('assets/images/thumbnails/pkuimg.jpg') }}" alt="" class="rounded-xl">
                 <div>
-                    <p class="text-[#D7D7D7] text-5xl font-semibold">Apa kata mereka tentang PKU-MI</p>
-                </div>
-                <div class="flex items-center">
-                    <?xml version="1.0" encoding="iso-8859-1"?>
-                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	                        viewBox="0 0 476.213 476.213" xml:space="preserve">
-                        <polygon points="476.213,223.107 57.427,223.107 151.82,128.713 130.607,107.5 0,238.106 130.607,368.714 151.82,347.5 
-	                        57.427,253.107 476.213,253.107 "/>
-                        </svg>
-                    <div class="bg-white rounded-xl flex items-center gap-5 px-10">
-                        <div>
-                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
-                            <p class="text-[#9192A6] py-10">PKMUI Istiqlal Jakarta berfungsi sebagai pusat pengembangan generasi ulama masa depan dan diharapkan dapat mempersiapkan calon Mufti yang berkualitas.</p>
-                            <p class="font-bold pt-5">KH. Fulan Bin Fulan</p>
-                            <p class="pb-10 text-[#9192A6]">Sekretaris Umum PKUMI Istiqlal Jakarta</p>
-                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
-                        </div>
-                        <img src="{{ asset('assets/images/photos/fulan.png') }}" alt="">
-                    </div>
-                    <?xml version="1.0" encoding="iso-8859-1"?>
-                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	                        viewBox="0 0 330 330" xml:space="preserve">
-                        <path id="XMLID_27_" d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
-	                        s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
-	                        c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"/>
-                        </svg>                            
+                    <p class="text-4xl font-bold text-[#007AFF]">About US</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero hic iusto adipisci, impedit
+                        officiis dolores beatae est voluptatum eum delectus corrupti ipsa dicta dolore? Minus vero corrupti
+                        eius voluptates!</p>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white px-32 pb-32">
-            <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Pengajar</p>
-            <div class="grid grid-cols-3 pl-20">
-                <div class="bg-[#007AFF26] w-[20rem] rounded-lg hover:bg-[#007AFF] transition">
-                    <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                    <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                    <p class="text-white pl-7">Ketua Bidang jaringan</p>
+        <div class="bg-white">
+            <div class="container mx-auto flex flex-col items-center">
+
+                <p class="text-4xl font-bold text-[#007AFF] mb-7">Berita Terbaru</p>
+                <div class="">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-8">
+                        <a class="relative bg-[#007AFF] rounded-lg" href="{{ route('front.details-news') }}">
+                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
+                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
+                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
+                                <path
+                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <div class="relative bg-[#007AFF] rounded-lg">
+                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
+                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
+                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
+                                <path
+                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="relative bg-[#007AFF] rounded-lg">
+                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
+                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
+                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
+                                <path
+                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="relative bg-[#007AFF] rounded-lg">
+                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
+                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
+                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
+                                <path
+                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-[#007AFF26] w-[20rem] rounded-lg hover:bg-[#007AFF] transition">
-                    <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                    <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                    <p class="text-white pl-7">Ketua Bidang jaringan</p>
+            </div>
+        </div>
+
+        <div class="bg-white py-56">
+            <div>
+
+                <div class="bg-[#007AFF] rounded-lg flex flex-col lg:flex-row gap-4 items-center px-10 py-10">
+                    <div>
+                        <p class="text-[#D7D7D7] text-5xl font-semibold">Apa kata mereka tentang PKU-MI</p>
+                    </div>
+                    <div class="flex items-center">
+                        <?xml version="1.0" encoding="iso-8859-1"?>
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 476.213 476.213" xml:space="preserve">
+                            <polygon
+                                points="476.213,223.107 57.427,223.107 151.82,128.713 130.607,107.5 0,238.106 130.607,368.714 151.82,347.5 
+	                        57.427,253.107 476.213,253.107 " />
+                        </svg>
+                        <div class="bg-white rounded-xl flex flex-col lg:flex-row items-center gap-5 px-10">
+                            <div>
+                                <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
+                                <p class="text-[#9192A6] py-10">PKMUI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
+                                    generasi ulama masa depan dan diharapkan dapat mempersiapkan calon Mufti yang
+                                    berkualitas.</p>
+                                <p class="font-bold pt-5">KH. Fulan Bin Fulan</p>
+                                <p class="pb-10 text-[#9192A6]">Sekretaris Umum PKUMI Istiqlal Jakarta</p>
+                                <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
+                            </div>
+                            <img class="-order-1 lg:order-1" src="{{ asset('assets/images/photos/fulan.png') }}"
+                                alt="">
+                        </div>
+                        <?xml version="1.0" encoding="iso-8859-1"?>
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330 330" xml:space="preserve">
+                            <path id="XMLID_27_"
+                                d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
+     s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
+     c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z" />
+                        </svg>
+                    </div>
                 </div>
-                <div class="bg-[#007AFF26] w-[20rem] rounded-lg hover:bg-[#007AFF] transition">
-                    <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                    <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                    <p class="text-white pl-7">Ketua Bidang jaringan</p>
+            </div>
+        </div>
+
+        <div class="bg-white pb-32">
+            <div class="container mx-auto flex flex-col items-center px-4">
+
+                <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Pengajar</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3">
+                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
+                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
+                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
+                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
+                    </div>
+                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
+                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
+                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
+                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
+                    </div>
+                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
+                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
+                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
+                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
+                    </div>
                 </div>
             </div>
         </div>
