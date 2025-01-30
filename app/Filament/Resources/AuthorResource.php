@@ -59,7 +59,6 @@ class AuthorResource extends Resource
 
                 Forms\Components\FileUpload::make('avatar')
                     ->label('Avatar')
-                    ->disk('public')
                     ->image()
                     ->directory('author_avatar'),
                 Forms\Components\TextInput::make('instagram')

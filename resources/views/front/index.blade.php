@@ -191,7 +191,7 @@
                 <div class="main-carousel w-full">
 
                     @forelse($featured_articles as $article)
-                        <div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
+                        <div class="featured-news-card relative w-full md:h-[550px] flex shrink-0 overflow-hidden">
                             <img src="{{ asset('storage/' . $article->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                             <div

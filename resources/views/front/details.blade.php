@@ -55,8 +55,9 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full h-[500px] flex shrink-0 overflow-hidden">
-                <img src="{{ Storage::url($articleNews->thumbnail) }}" class="object-cover w-full h-full"
+            <div class="w-full flex shrink-0">
+                <img src="{{ Storage::url($articleNews->thumbnail) }}" 
+                    class="object-contain w-full max-h-[500px]" 
                     alt="cover thumbnail">
             </div>
         </header>
