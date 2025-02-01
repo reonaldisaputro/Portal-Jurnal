@@ -28,6 +28,14 @@ class DosenResource extends Resource
                 TextInput::make('name')
                     ->label('Nama')
                     ->required(),
+                TextInput::make('position')
+                    ->label('Posisi')
+                    ->required(),
+                FileUpload::make('image')
+                    ->label('Foto Dosen/Pengajar')
+                    ->disk('public')
+                    ->directory('dosen')
+                    ->required(),
             ]);
     }
 
@@ -39,6 +47,10 @@ class DosenResource extends Resource
                     ->label('Nama')
                     ->sortable()
                     ->searchable(),
+                TextColumn::make('position')
+                    ->label('Posisi'),
+                ImageColumn::make('image')
+                    ->label('Foto Dosen'),
             ])
             ->filters([
                 //

@@ -11,6 +11,9 @@ class Dosen extends Model
 
     protected $fillable = [
         'name',
+        'position',
+        'image'
+
     ];
 
     public function jadwal()

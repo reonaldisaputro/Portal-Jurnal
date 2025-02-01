@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleNews;
 use App\Models\Author;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\BannerAdvertisement;
@@ -12,101 +13,69 @@ class FrontController extends Controller
 {
     //
     public function index()
-    {
-        $categories = Category::all();
+{
+    $categories = Category::all();
 
-        // Mengambil artikel biasa yang tidak featured dan statusnya 'accept'
-        $articles = ArticleNews::with(['category'])
+    $articles = ArticleNews::with(['category'])
+        ->where('is_featured', 'not_featured')
+        ->where('status', 'accept')
+        ->latest()
+        ->take(3)
+        ->get();
+
+    $featured_articles = ArticleNews::with(['category'])
+        ->where('is_featured', 'featured')
+        ->where('status', 'accept')
+        ->inRandomOrder()
+        ->take(3)
+        ->get();
+
+    $authors = Author::all();
+
+    $bannerads = BannerAdvertisement::where('is_active', 'active')
+        ->where('type', 'banner')
+        ->inRandomOrder()
+        ->first();
+
+    // Menggunakan array kategori untuk menghindari query berulang
+    $categories_articles = [];
+    $categories_featured_articles = [];
+    $categoryNames = ['Tasawuf', 'Aqidah', 'Tafsir'];
+
+    foreach ($categoryNames as $category) {
+        $categories_articles[$category] = ArticleNews::whereHas('category', function ($query) use ($category) {
+            $query->where('name', $category);
+        })
             ->where('is_featured', 'not_featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
+            ->where('status', 'accept')
             ->latest()
             ->take(3)
             ->get();
 
-        // Mengambil artikel featured dan statusnya 'accept'
-        $featured_articles = ArticleNews::with(['category'])
-            ->where('is_featured', 'featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->inRandomOrder()
-            ->take(3)
-            ->get();
-
-        $authors = Author::all();
-
-        $bannerads = BannerAdvertisement::where('is_active', 'active')
-            ->where('type', 'banner')
-            ->inRandomOrder()
-            ->first();
-
-        // Artikel untuk kategori Entertainment dengan status 'accept'
-        $entertainment_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Tasawuf');
-        })
-            ->where('is_featured', 'not_featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->latest()
-            ->take(3)
-            ->get();
-
-        $entertainment_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Tasawuf');
+        $categories_featured_articles[$category] = ArticleNews::whereHas('category', function ($query) use ($category) {
+            $query->where('name', $category);
         })
             ->where('is_featured', 'featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
+            ->where('status', 'accept')
             ->inRandomOrder()
             ->first();
-
-        // Artikel untuk kategori Business dengan status 'accept'
-        $business_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Aqidah');
-        })
-            ->where('is_featured', 'not_featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->latest()
-            ->take(3)
-            ->get();
-
-        $business_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Aqidah');
-        })
-            ->where('is_featured', 'featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->inRandomOrder()
-            ->first();
-
-        // Artikel untuk kategori Automotive dengan status 'accept'
-        $automotive_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Tafsir');
-        })
-            ->where('is_featured', 'not_featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->latest()
-            ->take(3)
-            ->get();
-
-        $automotive_featured_articles = ArticleNews::whereHas('category', function ($query) {
-            $query->where('name', 'Tafsir');
-        })
-            ->where('is_featured', 'featured')
-            ->where('status', 'accept') // Filter hanya artikel dengan status 'accept'
-            ->inRandomOrder()
-            ->first();
-
-        // Mengembalikan data ke view
-        return view('front.index', compact(
-            'categories',
-            'articles',
-            'featured_articles',
-            'authors',
-            'bannerads',
-            'entertainment_articles',
-            'entertainment_featured_articles',
-            'business_articles',
-            'business_featured_articles',
-            'automotive_articles',
-            'automotive_featured_articles'
-        ));
     }
+
+    // 🔥 Query untuk mengambil data dosen
+    $dosens = Dosen::all();
+
+    return view('front.index', compact(
+        'categories',
+        'articles',
+        'featured_articles',
+        'authors',
+        'bannerads',
+        'categories_articles',
+        'categories_featured_articles',
+        'dosens'
+    ));
+}
+
 
 
     public function category(Category $category)
@@ -159,58 +128,85 @@ class FrontController extends Controller
 
 
     public function details(ArticleNews $articleNews)
-    {
-        // Tambah jumlah view
-        $articleNews->increment('view');
+{
+    // Tambah jumlah view setiap kali artikel dikunjungi
+    $articleNews->increment('view');
 
-        $categories = Category::all();
+    $categories = Category::all();
 
-        $articles = ArticleNews::with(['category'])
-            ->where('is_featured', 'not_featured')
-            ->where('id', '!=', $articleNews->id)
-            ->where('status', 'accept') // Tambahkan filter
-            ->latest()
-            ->take(3)
-            ->get();
+    // Ambil 3 artikel lain selain yang sedang dibuka
+    $related_articles = ArticleNews::with(['category'])
+        ->where('is_featured', 'not_featured')
+        ->where('id', '!=', $articleNews->id)
+        ->where('status', 'accept')
+        ->latest()
+        ->take(3)
+        ->get();
 
-        $bannerads = BannerAdvertisement::where('is_active', 'active')
-            ->where('type', 'banner')
-            ->inRandomOrder()
-            // ->take(1)
-            // ->get();
-            ->first();
+    $bannerads = BannerAdvertisement::where('is_active', 'active')
+        ->where('type', 'banner')
+        ->inRandomOrder()
+        ->first();
 
-        $square_ads = BannerAdvertisement::where('type', 'square')
-            ->where('is_active', 'active')
-            ->inRandomOrder()
-            ->take(2)
-            ->get();
+    $square_ads = BannerAdvertisement::where('type', 'square')
+        ->where('is_active', 'active')
+        ->inRandomOrder()
+        ->take(2)
+        ->get();
 
-        if ($square_ads->count() < 2) {
-            $square_ads_1 = $square_ads->first();
-            $square_ads_2 = null;
-        } else {
-            $square_ads_1 = $square_ads->get(0);
-            $square_ads_2 = $square_ads->get(1);
-        }
+    // Pastikan ada dua square ads
+    $square_ads_1 = $square_ads->first();
+    $square_ads_2 = $square_ads->count() > 1 ? $square_ads->get(1) : null;
 
-        $author_news = ArticleNews::where('author_id', $articleNews->author_id)
-            ->where('id', '!=', $articleNews->id)
-            ->where('status', 'accept') // Tambahkan filter
-            ->inRandomOrder()
-            ->get();
+    // Ambil artikel lain dari penulis yang sama
+    $author_news = ArticleNews::where('author_id', $articleNews->author_id)
+        ->where('id', '!=', $articleNews->id)
+        ->where('status', 'accept')
+        ->inRandomOrder()
+        ->take(3)
+        ->get();
 
-        if ($articleNews->status !== 'accept') {
-            abort(404); // Mengembalikan halaman 404 jika artikel tidak diterima
-        }
-
-        return view('front.details', compact('articleNews', 'categories', 'articles', 'bannerads', 'square_ads_1', 'square_ads_2', 'author_news'));
+    // Jika artikel tidak memiliki status 'accept', kembalikan 404
+    if ($articleNews->status !== 'accept') {
+        abort(404);
     }
+    
 
-    public function news()
-    {
-    return view('front.news');
-    }
+    return view('front.details-news', compact(
+        'articleNews',
+        'categories',
+        'related_articles',
+        'bannerads',
+        'square_ads_1',
+        'square_ads_2',
+        'author_news'
+    ));
+}
+
+
+public function news()
+{
+    $categories = Category::all();
+
+    $articles = ArticleNews::with(['category'])
+        ->where('is_featured', 'not_featured')
+        ->where('status', 'accept')
+        ->latest()
+        ->paginate(6); // ➜ Menggunakan pagination agar tidak berat
+
+    $featured_articles = ArticleNews::with(['category'])
+        ->where('is_featured', 'featured')
+        ->where('status', 'accept')
+        ->inRandomOrder()
+        ->take(3)
+        ->get();
+
+    return view('front.news', compact(
+        'categories',
+        'articles',
+        'featured_articles'
+    ));
+}
 
     public function about()
     {

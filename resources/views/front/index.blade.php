@@ -3,20 +3,16 @@
 
     <body class="font-[Poppins]" style="background-image: url('{{ asset('assets/images/thumbnails/headers.png') }}')">
         <x-navbar />
-        <nav id="Category" class="max-w-[1130px] container mx-auto grid md:grid-cols-3 gap-4 mt-[30px]">
+        <!-- <nav id="Category" class="max-w-[1130px] container mx-auto grid md:grid-cols-3 gap-4 mt-[30px]">
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-                    <!-- Tambahkan bg-white -->
-                    {{-- <div class="w-6 h-6 flex shrink-0">
-                        <img src="{{ asset('storage/' . $category->icon) }}" alt="icon" />
-                    </div> --}}
                     <span>{{ $category->name ?? 'Kategori Tidak Ditemukan' }}</span>
                 </a>
             @endforeach
-        </nav>
+        </nav> -->
 
-        <div class="flex mt-10 lg:mt-0 flex-col lg:flex-row gap-5 items-center max-w-[1050px] mx-auto container">
+        <div class="container mx-auto px-4 lg:px-10 py-10 flex flex-col lg:flex-row gap-5 items-center">
             <div>
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
                 <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang
@@ -27,7 +23,7 @@
             <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
         </div>
         <div
-            class="grid container mx-auto grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center max-w-[1050px] py-3 shadow-lg">
+            class="grid container mx-auto mb-1 grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center max-w-[1050px] py-3 shadow-lg">
             <div class="font-semibold ">
                 <p class="text-2xl">Pendidikan Kader</p>
                 <p class="text-2xl">Ulama Masjid Istiqlal</p>
@@ -61,56 +57,26 @@
 
                 <p class="text-4xl font-bold text-[#007AFF] mb-7">Berita Terbaru</p>
                 <div class="">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-8">
-                        <a class="relative bg-[#007AFF] rounded-lg" href="{{ route('front.details-news') }}">
-                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
-                                <path
-                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
-                                    fill="white" />
-                            </svg>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- @foreach ($articles as $article)
+                        <a class="relative bg-[#007AFF] rounded-lg" href="{{ route('front.details', $article->slug) }}">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
+                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">{{ $article->category->name }}</p>
+                            <p class="text-white pl-5 py-2">{{ $article->name }}</p>
                         </a>
-                        <div class="relative bg-[#007AFF] rounded-lg">
-                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
-                                <path
-                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
-                                    fill="white" />
-                            </svg>
-                        </div>
-                        <div class="relative bg-[#007AFF] rounded-lg">
-                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
-                                <path
-                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
-                                    fill="white" />
-                            </svg>
-                        </div>
-                        <div class="relative bg-[#007AFF] rounded-lg">
-                            <img src="{{ asset('assets/images/thumbnails/tasawuf.png') }}" alt="">
-                            <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">Tasawuf</p>
-                            <p class="text-white pl-5 py-2">Tasawuf adalah</p>
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="24" fill="#007AFF" />
-                                <path
-                                    d="M15 22.75C14.3096 22.75 13.75 23.3096 13.75 24C13.75 24.6904 14.3096 25.25 15 25.25V22.75ZM33.8839 24.8839C34.372 24.3957 34.372 23.6043 33.8839 23.1161L25.9289 15.1612C25.4408 14.673 24.6493 14.673 24.1612 15.1612C23.673 15.6493 23.673 16.4408 24.1612 16.9289L31.2322 24L24.1612 31.0711C23.673 31.5592 23.673 32.3507 24.1612 32.8388C24.6493 33.327 25.4408 33.327 25.9289 32.8388L33.8839 24.8839ZM15 25.25H33V22.75H15V25.25Z"
-                                    fill="white" />
-                            </svg>
-                        </div>
-                    </div>
+                    @endforeach -->
+                    @foreach ($articles as $article)
+                        <x-card 
+                            :url="route('front.details', $article->slug)" 
+                            :image="'storage/' . $article->thumbnail" 
+                            :category="$article->category->name"
+                            :title="$article->name" 
+                        />
+                    @endforeach
+
+
+                </div>
+
                 </div>
             </div>
         </div>
@@ -162,27 +128,19 @@
 
         <div class="bg-white pb-32">
             <div class="container mx-auto flex flex-col items-center px-4">
-
                 <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Pengajar</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3">
-                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
-                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
-                    </div>
-                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
-                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
-                    </div>
-                    <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition">
-                        <img src="{{ asset('assets/images/photos/dosen.png') }}" alt="dosen">
-                        <p class="text-xl text-white pl-7 pt-2">Adil Rahmat Kurnia</p>
-                        <p class="text-white pl-7">Ketua Bidang jaringan</p>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach ($dosens as $dosen)
+                        <div class="bg-[#007AFF26] rounded-lg hover:bg-[#007AFF] transition p-5 text-center">
+                            <img src="{{ asset('storage/dosen/' . $dosen->image) }}" alt="dosen" class="mx-auto w-32 h-32 rounded-full object-cover">
+                            <p class="text-xl text-white pt-2">{{ $dosen->name }}</p>
+                            <p class="text-white">{{ $dosen->position }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+
 
         <x-footer></x-footer>
 
