@@ -7,7 +7,7 @@
         <div class="flex flex-col md:flex-row gap-6 px-4 md:px-20 py-8">
             <div class="w-full md:w-4/6">
                 <div class="bg-[#F5F5F5] rounded-lg p-3">
-                    <img class="rounded-lg" src="{{ asset('storage/' . $articleNews->thumbnail) }}" alt="{{ $articleNews->name }}">
+                    <img class="rounded-lg" src="{{ asset($articleNews->thumbnail) }}" alt="{{ $articleNews->name }}">
                     <p class="text-3xl font-semibold">{{ $articleNews->name }}</p>
                 </div>
                 <div class="flex items-center justify-center gap-5 my-7 text-[#3E3232BF] text-sm">

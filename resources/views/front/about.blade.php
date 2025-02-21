@@ -14,7 +14,7 @@
             </div>
             <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
         </div>
-        <div class="bg-white pt-20">
+        {{-- <div class="bg-white pt-20">
             <div class="container mx-auto">
 
                 <div
@@ -25,7 +25,7 @@
                 <a class="text-white bg-[#2563EB] px-5 py-2 rounded-xl" href="">Akidah</a>
                 <a class="text-white bg-[#2563EB] px-5 py-2 rounded-xl" href="">Akidah</a>
             </div>
-        </div>
+        </div> --}}
         </div>
         <div class="bg-white pt-20">
             <div class="container mx-auto">
@@ -91,7 +91,7 @@
         </div>
         </div>
 
-        <div class="bg-white pb-32 pt-20">
+        {{-- <div class="bg-white pb-32 pt-20">
             <div class="container mx-auto flex flex-col items-center px-4">
 
                 <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Pengajar</p>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         
         <x-footer></x-footer>
     </body>

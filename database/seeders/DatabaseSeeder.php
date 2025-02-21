@@ -17,13 +17,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserAuthorSeeder::class,
-            DaySeeder::class,
-            DosenSeeder::class,
-            KelasSeeder::class,
-            MataKuliahSeeder::class,
-            JadwalSeeder::class,
-            TransportationSeeder::class,
             CategorySeeder::class,
+            ArticleNewsSeeder::class,
         ]);
     }
 }

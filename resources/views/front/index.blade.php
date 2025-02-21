@@ -3,14 +3,14 @@
 
     <body class="font-[Poppins]" style="background-image: url('{{ asset('assets/images/thumbnails/headers.png') }}')">
         <x-navbar />
-        <!-- <nav id="Category" class="max-w-[1130px] container mx-auto grid md:grid-cols-3 gap-4 mt-[30px]">
+        {{-- <nav id="Category" class="max-w-[1130px] container mx-auto grid md:grid-cols-3 gap-4 mt-[30px]">
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
                     <span>{{ $category->name ?? 'Kategori Tidak Ditemukan' }}</span>
                 </a>
             @endforeach
-        </nav> -->
+        </nav> --}}
 
         <div class="container mx-auto px-4 lg:px-10 py-10 flex flex-col lg:flex-row gap-5 items-center">
             <div>
@@ -68,7 +68,7 @@
                     @foreach ($articles as $article)
                         <x-card 
                             :url="route('front.details', $article->slug)" 
-                            :image="'storage/' . $article->thumbnail" 
+                            :image="$article->thumbnail" 
                             :category="$article->category->name"
                             :title="$article->name" 
                         />
