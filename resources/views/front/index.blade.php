@@ -81,52 +81,100 @@
             </div>
         </div>
 
-        <div class="bg-white py-56">
+        <!-- SECTION WRAPPER -->
+<div class="bg-white py-56" id="slider-container">
+    <div>
+        <!-- BAGIAN JUDUL -->
+        <div class="bg-[#007AFF] rounded-lg flex flex-col lg:flex-row gap-4 items-center px-10 py-10">
             <div>
+                <p class="text-[#D7D7D7] text-5xl font-semibold">Apa kata mereka tentang PKU-MI</p>
+            </div>
 
-                <div class="bg-[#007AFF] rounded-lg flex flex-col lg:flex-row gap-4 items-center px-10 py-10">
-                    <div>
-                        <p class="text-[#D7D7D7] text-5xl font-semibold">Apa kata mereka tentang PKU-MI</p>
-                    </div>
-                    <div class="flex items-center">
-                        <?xml version="1.0" encoding="iso-8859-1"?>
-                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="0 0 476.213 476.213" xml:space="preserve">
-                            <polygon
-                                points="476.213,223.107 57.427,223.107 151.82,128.713 130.607,107.5 0,238.106 130.607,368.714 151.82,347.5 
-	                        57.427,253.107 476.213,253.107 " />
-                        </svg>
-                        <div class="bg-white rounded-xl flex flex-col lg:flex-row items-center gap-5 px-10">
-                            <div>
-                                <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
-                                <p class="text-[#9192A6] py-10">PKMUI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
-                                    generasi ulama masa depan dan diharapkan dapat mempersiapkan calon Mufti yang
-                                    berkualitas.</p>
-                                <p class="font-bold pt-5">KH. Fulan Bin Fulan</p>
-                                <p class="pb-10 text-[#9192A6]">Sekretaris Umum PKUMI Istiqlal Jakarta</p>
-                                <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="">
-                            </div>
-                            <img class="-order-1 lg:order-1" src="{{ asset('assets/images/photos/fulan.png') }}"
-                                alt="">
+            <!-- WRAPPER SLIDES DAN TOMBOL -->
+            <div class="flex items-center relative lg:w-auto">
+
+                <!-- SLIDE 1 -->
+                <div class="slide sm:w-[20rem] md:w-[50rem] lg:w-[70rem]">
+                    <div class="bg-white rounded-xl flex flex-col lg:flex-row items-center gap-5 px-10 py-10">
+                        <div>
+                            <!-- Garis hiasan atas -->
+                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="garis hiasan">
+
+                            <!-- Konten Testimoni -->
+                            <p class="text-[#9192A6] py-10">
+                                PKMUI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
+                                generasi ulama masa depan dan diharapkan dapat mempersiapkan
+                                calon Mufti yang berkualitas.
+                            </p>
+                            <p class="font-bold pt-5">KH. Fulan Bin Fulan</p>
+                            <p class="pb-10 text-[#9192A6]">Sekretaris Umum PKUMI Istiqlal Jakarta</p>
+
+                            <!-- Garis hiasan bawah -->
+                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="garis hiasan">
                         </div>
-                        <?xml version="1.0" encoding="iso-8859-1"?>
-                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                        <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="0 0 330 330" xml:space="preserve">
-                            <path id="XMLID_27_"
-                                d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
-     s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
-     c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z" />
-                        </svg>
+                        <!-- Gambar orang (testimoni) -->
+                        <img class="-order-1 lg:order-1 w-[15rem] h-auto object-contain"
+                             src="{{ asset('assets/images/photos/fulan.png') }}"
+                             alt="Foto Fulan">
                     </div>
                 </div>
+                <!-- END SLIDE 1 -->
+
+                <!-- SLIDE 2 -->
+                <div class="slide sm:w-[20rem] md:w-[50rem] lg:w-[70rem] hidden">
+                    <div class="bg-white rounded-xl flex flex-col lg:flex-row items-center gap-5 px-10 py-10">
+                        <div>
+                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="garis hiasan">
+
+                            <p class="text-[#9192A6] py-10">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Nullam ut elit in lacus vehicula porta. Pellentesque habitant 
+                                morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                            </p>
+                            <p class="font-bold pt-5">KH. Abdullah</p>
+                            <p class="pb-10 text-[#9192A6]">Ketua PKUMI Istiqlal Jakarta</p>
+
+                            <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="garis hiasan">
+                        </div>
+                        <img class="-order-1 lg:order-1 w-[15rem] h-auto object-contain"
+                             src="{{ asset('assets/images/photos/fulan.png') }}"
+                             alt="Foto Lain">
+                    </div>
+                </div>
+                <!-- END SLIDE 2 -->
+
+                <!-- (Tambahkan slide tambahan dengan struktur serupa jika diperlukan) -->
+
+                <!-- TOMBOL PREV -->
+                <button id="prevBtn" 
+                        class="absolute top-[10rem] -left-10 bg-[#3F3F3F] rounded-full p-4">
+                    <!-- Icon panah kiri -->
+                    <svg fill="#ffffff" height="2rem" width="2rem" version="1.1" 
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476.213 476.213">
+                        <polygon points="476.213,223.107 57.427,223.107 151.82,128.713 
+                                         130.607,107.5 0,238.106 130.607,368.714 
+                                         151.82,347.5 57.427,253.107 476.213,253.107 " />
+                    </svg>
+                </button>
+
+                <!-- TOMBOL NEXT -->
+                <button id="nextBtn" 
+                class="absolute top-[10rem] -right-10 bg-[#3F3F3F] rounded-full p-4">
+                    <!-- Icon panah kanan -->
+                    <svg fill="#ffffff" height="2rem" width="2rem" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330">
+                        <path d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
+                                 s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
+                                 c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"/>
+                    </svg>
+                </button>
+
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="bg-white pb-32">
+        {{-- <div class="bg-white pb-32">
             <div class="container mx-auto flex flex-col items-center px-4">
                 <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Pengajar</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,6 +185,31 @@
                             <p class="text-white">{{ $dosen->position }}</p>
                         </div>
                     @endforeach
+                </div>
+            </div>
+        </div> --}}
+
+        <div class="bg-white pb-32">
+            <div class="container mx-auto flex flex-col items-center px-4">
+                <p class="text-4xl font-bold text-[#007AFF] mb-7">Dosen Kami</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  
+                        <div class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
+                            <img src="\assets\images\photos\dosen.png" alt="dosen" class="h-56 rounded-xl w-full object-cover">
+                            <p class="text-lg text-black pt-4 font-semibold group-hover:text-white">Pak Hambali Ahmad</p>
+                            <p class="text-white text-sm text-[#00000087] group-hover:text-white">Bahasa Arab</p>
+                        </div>
+                        <div class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
+                            <img src="\assets\images\photos\dosen.png" alt="dosen" class="h-56 rounded-xl w-full object-cover">
+                            <p class="text-lg text-black pt-4 font-semibold group-hover:text-white">Pak Hambali Ahmad</p>
+                            <p class="text-white text-sm text-[#00000087] group-hover:text-white">Bahasa Arab</p>
+                        </div>
+                        <div class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
+                            <img src="\assets\images\photos\dosen.png" alt="dosen" class="h-56 rounded-xl w-full object-cover">
+                            <p class="text-lg text-black pt-4 font-semibold group-hover:text-white">Pak Hambali Ahmad</p>
+                            <p class="text-white text-sm text-[#00000087] group-hover:text-white">Bahasa Arab</p>
+                        </div>
+                  
                 </div>
             </div>
         </div>
@@ -491,6 +564,70 @@
 
 
     </body>
+
+    <!-- SCRIPT SLIDER -->
+<script>
+    // Ambil semua elemen slide
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Interval waktu (3 detik)
+    const intervalTime = 3000;
+    let slideInterval;
+
+    // Fungsi menampilkan slide berdasarkan index
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('hidden');
+            } else {
+                slide.classList.add('hidden');
+            }
+        });
+    }
+
+    // Fungsi ke slide berikutnya
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Fungsi ke slide sebelumnya
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Mulai auto-slide
+    function startAutoSlide() {
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // Berhenti auto-slide
+    function stopAutoSlide() {
+        clearInterval(slideInterval);
+    }
+
+    // Event klik tombol Next
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        // Setiap kali user klik, hentikan dulu lalu mulai ulang supaya timer reset
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
+
+    // Event klik tombol Prev
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+    });
+
+    // Inisialisasi
+    showSlide(currentSlide);
+    startAutoSlide();
+</script>
 @endsection
 @push('after-styles')
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />

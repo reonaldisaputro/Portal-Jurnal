@@ -1,4 +1,4 @@
-<nav id="Navbar" class="w-full md:w-max my-5 md:my-10 md:mx-auto px-3 md:px-5 py-2 flex justify-between items-center rounded-lg h-max">
+<nav id="Navbar" class="w-full my-5 md:my-10 md:mx-auto px-3 md:px-5 py-2 flex justify-between items-center rounded-lg h-max">
     <div class="logo-container flex gap-[15px] md:gap-[30px] items-center">
         <a href="{{ route('front.index') }}" class="flex shrink-0">
             <img src="{{ asset('assets/images/logos/pku-logo.png') }}" alt="logo" class="w-24 md:w-auto" />
@@ -14,11 +14,11 @@
 
     <!-- Navigation Links -->
     <div id="menu" class="hidden lg:flex md:gap-[30px] items-center absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 shadow-lg md:shadow-none">
-        <a href="{{ route('front.index') }}" class="block md:inline text-[#1A143C] md:text-white font-bold hover:underline py-2 md:py-0">Beranda</a>
-        <a class="block md:inline text-[#1A143C] md:text-white font-bold py-2 md:py-0" href="{{ route('front.news') }}">Berita</a>
-        <a class="block md:inline text-[#1A143C] md:text-white font-bold py-2 md:py-0" href="{{ route('front.about') }}">Tentang PKU</a>
-        <p class="text-white font-bold">Dosen</p>
-        <p class="text-white font-bold">Jurnal</p>
+        <a href="{{ route('front.index') }}" class="block md:inline {{ Request::is('details/*') ? 'text-black' : 'md:text-white' }} font-bold hover:underline py-2 md:py-0">Beranda</a>
+    <a class="block md:inline {{ Request::is('details/*') ? 'text-black' : 'md:text-white' }} font-bold py-2 md:py-0" href="{{ route('front.news') }}">Berita</a>
+    <a class="block md:inline {{ Request::is('details/*') ? 'text-black' : 'md:text-white' }} font-bold py-2 md:py-0" href="{{ route('front.about') }}">Tentang PKU</a>
+    <p class="{{ Request::is('details/*') ? 'text-black' : 'md:text-white' }} font-bold">Dosen</p>
+    <p class="{{ Request::is('details/*') ? 'text-black' : 'md:text-white' }} font-bold">Jurnal</p>
         {{-- <p class="text-white font-bold">Penelitian</p>
         <p class="text-white font-bold">Galeri</p>
         <p class="text-white font-bold">Kontak Kami</p>
