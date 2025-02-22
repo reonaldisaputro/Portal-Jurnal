@@ -12,3 +12,4 @@ Route::get('/details/{article_news:slug}', [FrontController::class, 'details'])-
 Route::get('/search', [FrontController::class, 'search'])->name('front.search');
 Route::get('/news', [FrontController::class, 'news'])->name('front.news');
 Route::get('/about', [FrontController::class, 'about'])->name('front.about');
+Route::get('/dosen', [FrontController::class, 'dosen'])->name('front.dosen');
