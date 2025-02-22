@@ -17,7 +17,6 @@ class ArticleNewsSeeder extends Seeder
             [
                 'name' => 'Artikel Pertama PKUMI',
                 'content' => 'Konten artikel pertama PKUMI yang sangat informatif dan mendalam mengenai program-program terbaru.',
-                'thumbnail' => 'assets/images/thumbnails/th-building.png',
                 'is_featured' => 'featured',
                 'category_id' => 1, // Pastikan category_id dan author_id valid
                 'author_id' => 1,
@@ -31,7 +30,6 @@ class ArticleNewsSeeder extends Seeder
             [
                 'name' => 'Update Kegiatan PKUMI',
                 'content' => 'Informasi terkini mengenai kegiatan PKUMI yang akan berlangsung dalam waktu dekat.',
-                'thumbnail' => 'assets/images/thumbnails/th-bulldozer.png',
                 'is_featured' => 'featured',
                 'category_id' => 2,
                 'author_id' => 1,
@@ -45,7 +43,6 @@ class ArticleNewsSeeder extends Seeder
             [
                 'name' => 'Beasiswa S2 PKUMI',
                 'content' => 'Informasi tentang beasiswa S2 yang diberikan oleh PKUMI untuk mahasiswa berprestasi.',
-                'thumbnail' => 'assets/images/thumbnails/th-cyclist.png',
                 'is_featured' => 'featured',
                 'category_id' => 3,
                 'author_id' => 1,

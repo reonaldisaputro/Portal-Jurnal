@@ -31,7 +31,6 @@ class UserAuthorSeeder extends Seeder
             'linkedin' => 'https://linkedin.com/in/johndoe',
             'twitter' => 'https://twitter.com/johndoe',
             'tiktok' => 'https://tiktok.com/@johndoe',
-            'avatar' => 'path/to/avatar.jpg',
             'occupation' => 'Software Developer',
         ]);
 

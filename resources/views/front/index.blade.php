@@ -22,8 +22,13 @@
 
                     @forelse($featured_articles as $article)
                         <div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
-                                class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                            @if (isset($featured_articles->thumbnail))
+                                <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                    class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                            @else
+                                <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
+                                    class="thumbnail absolute w-full h-full object-cover" alt="icon" />
+                            @endif
                             <div
                                 class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
                             </div>
@@ -75,7 +80,7 @@
                                     <p
                                         class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
                                         {{ $article->category->name }}</p>
-                                    <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                    <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
                                         class="object-cover w-full h-full" alt="thumbnail" />
                                 </div>
                                 <div class="card-info flex flex-col gap-[6px]">
@@ -136,7 +141,7 @@
                                 <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
                                     alt="ads" />
                             @else
-                                <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                <img src="{{ asset('assets/images/thumbnails/bannerads-1.png') }}"
                                     class="object-cover w-full h-full" alt="default ads" />
                             @endif
 
@@ -164,7 +169,7 @@
                             <img src="{{ Storage::url($entertainment_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
-                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                            <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @endif
 
@@ -198,7 +203,7 @@
                                                 <img src="{{ Storage::url($article->thumbnail) }}"
                                                     class="object-cover w-full h-full" alt="thumbnail" />
                                             @else
-                                                <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                                                <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
                                                     class="object-cover w-full h-full" alt="thumbnail" />
                                             @endif
 
@@ -238,7 +243,7 @@
                             <img src="{{ Storage::url($business_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
-                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                            <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @endif
 
@@ -305,7 +310,7 @@
                             <img src="{{ Storage::url($automotive_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
-                            <img src="{{ asset('assets/images/default-banner.jpg') }}"
+                            <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @endif
 
