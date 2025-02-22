@@ -18,7 +18,7 @@
 
         <p class="text-[#1A143C] font-bold">Jurnal Kategori</p>
 
-        <p class="text-[#1A143C] font-bold">Penulis</p>
+        {{-- <p class="text-[#1A143C] font-bold">Penulis</p> --}}
         {{-- <p class="text-[#1A143C] font-bold">Universitas</p> --}}
         <form method="GET" action="{{ route('front.search') }}"
             class="w-[450px] flex items-center rounded-full border border-[#E8EBF4] p-[12px_20px] gap-[10px] focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300">

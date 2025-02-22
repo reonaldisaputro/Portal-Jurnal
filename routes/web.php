@@ -14,7 +14,7 @@ Route::get('/author/{author:slug}', [FrontController::class, 'author'])->name('f
 Route::get('/search', [FrontController::class, 'search'])->name('front.search');
 
 // Route::get('/author/create', [AuthorController::class, 'create'])->name('author.create');
-Route::get('/author', function () {
+Route::get('/mahasiswa/register', function () {
     // return redirect('/admin');
     return view('author.create');
 });

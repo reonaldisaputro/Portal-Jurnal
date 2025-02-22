@@ -13,9 +13,9 @@
 		<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
             @foreach($categories as $item_category)
             <a href="{{route('front.category', $item_category->slug)}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-                <div class="w-6 h-6 flex shrink-0">
+                {{-- <div class="w-6 h-6 flex shrink-0">
                     <img src="{{Storage::url($item_category->icon)}}" alt="icon" />
-                </div>
+                </div> --}}
                 <span>{{ $item_category->name }}</span>
             </a>
             @endforeach
