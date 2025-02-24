@@ -13,14 +13,15 @@
         </nav> --}}
 
         <div class="container mx-auto px-4 lg:px-10 py-10 flex flex-col lg:flex-row gap-5 items-center">
-            <div>
+            <div data-aos="fade-left"> <!-- Teks masuk dari kanan ke kiri -->
                 <p class="text-white font-bold text-5xl">Pendidikan Kader Ulama</p>
-                <p class="text-white font-extralight">Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang
-                    bertujuan untuk melahirkan calon ulama berkualitas dengan kurikulum yang terintegrasi dan inovatif.
-                    Program ini memberikan kesempatan untuk belajar dari para pengajar berpengalaman, menawarkan beasiswa
-                    S-2, serta membangun jaringan alumni yang solid.</p>
+                <p class="text-white font-extralight">
+                    Pendidikan Kader Ulama (PKU) Istiqlal adalah program pendidikan yang bertujuan untuk melahirkan calon ulama berkualitas dengan kurikulum yang terintegrasi dan inovatif. Program ini memberikan kesempatan untuk belajar dari para pengajar berpengalaman, menawarkan beasiswa S-2, serta membangun jaringan alumni yang solid.
+                </p>
             </div>
-            <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" class="w-[25rem] mr-20">
+            <img src="{{ asset('assets/images/photos/photos-headers.png') }}" alt="" 
+                 class="w-[25rem] mr-20" 
+                 data-aos="fade-right"> <!-- Gambar masuk dari kiri ke kanan -->
         </div>
         <div
             class="grid container mx-auto mb-1 grid-cols-1 lg:grid-cols-4 bg-white rounded-tr-xl rounded-tl-xl lg:rounded-xl gap-4 lg:place-items-center max-w-[1050px] py-3 shadow-lg">
