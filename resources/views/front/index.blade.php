@@ -41,13 +41,12 @@
 
         <div class="bg-white py-32">
             <div class="container mx-auto flex flex-col lg:flex-row items-center gap-5">
-
-                <img src="{{ asset('assets/images/thumbnails/pkuimg.jpg') }}" alt="" class="rounded-xl">
-                <div>
+                <img src="{{ asset('assets/images/thumbnails/pkuimg.jpg') }}" alt="" 
+                     class="rounded-xl" 
+                     data-aos="fade-right" />
+                <div data-aos="fade-left">
                     <p class="text-4xl font-bold text-[#007AFF]">About US</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero hic iusto adipisci, impedit
-                        officiis dolores beatae est voluptatum eum delectus corrupti ipsa dicta dolore? Minus vero corrupti
-                        eius voluptates!</p>
+                    <p>Wadah Intelektual Muslim yang Berperan Penting dalam Menghimpun Karya-Karya Berkualitas dan Menginspirasi Umat untuk Mencapai Potensi Terbaik Mereka.</p>
                 </div>
             </div>
         </div>
@@ -102,7 +101,7 @@
 
                             <!-- Konten Testimoni -->
                             <p class="text-[#9192A6] py-10">
-                                PKMUI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
+                                PKUMI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
                                 generasi ulama masa depan dan diharapkan dapat mempersiapkan
                                 calon Mufti yang berkualitas.
                             </p>
@@ -127,9 +126,9 @@
                             <img src="{{ asset('assets/images/icons/blue-line.png') }}" alt="garis hiasan">
 
                             <p class="text-[#9192A6] py-10">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Nullam ut elit in lacus vehicula porta. Pellentesque habitant 
-                                morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                            PKUMI Istiqlal Jakarta berfungsi sebagai pusat pengembangan
+                                generasi ulama masa depan dan diharapkan dapat mempersiapkan
+                                calon Mufti yang berkualitas.
                             </p>
                             <p class="font-bold pt-5">KH. Abdullah</p>
                             <p class="pb-10 text-[#9192A6]">Ketua PKUMI Istiqlal Jakarta</p>
@@ -634,6 +633,10 @@
 @endsection
 @push('after-styles')
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+@endpush
+@push('after-styles')
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
 @endpush
 @push('after-scripts')
     <script src="{{ asset('customjs/two-lines-text.js') }}"></script>
@@ -642,4 +645,18 @@
     <!-- JavaScript -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="{{ asset('customjs/carousel.js') }}"></script>
+@endpush
+@push('after-scripts')
+    <script src="{{ asset('customjs/two-lines-text.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="{{ asset('customjs/carousel.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Durasi animasi dalam ms
+            once: true // Animasi hanya trigger sekali saat scroll pertama
+        });
+    </script>
 @endpush

@@ -1,8 +1,8 @@
-<a href="{{ $url }}" class="block">
-    <div class="relative bg-[#007AFF] rounded-lg p-3 hover:shadow-lg transition duration-300">
+<a href="{{ $url }}" class="block group">
+    <div class="relative group-hover:bg-[#007AFF] rounded-lg p-3 hover:shadow-lg transition duration-300">
         <img src="{{ asset($image) }}" alt="thumbnail" class="w-full h-40 object-cover rounded-t-lg">
         <p class="absolute right-0 top-0 bg-white mx-2 my-2 px-2 py-1 rounded-lg">{{ $category }}</p>
-        <p class="text-white px-5 py-2">{{ $title }}</p>
+        <p class="group-hover:text-white text-[#3F3F3F] px-5 py-2">{{ $title }}</p>
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="24" fill="#007AFF" />
