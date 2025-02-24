@@ -137,4 +137,8 @@ class FrontController extends Controller
     {
         return view('front.dosen');
     }
+    public function detailDosen()
+    {
+        return view('front.details-dosen');
+    }
 }

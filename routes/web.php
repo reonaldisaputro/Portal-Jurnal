@@ -13,3 +13,4 @@ Route::get('/search', [FrontController::class, 'search'])->name('front.search');
 Route::get('/news', [FrontController::class, 'news'])->name('front.news');
 Route::get('/about', [FrontController::class, 'about'])->name('front.about');
 Route::get('/dosen', [FrontController::class, 'dosen'])->name('front.dosen');
+Route::get('/detail-dosen', [FrontController::class, 'detailDosen'])->name('front.details-dosen');
