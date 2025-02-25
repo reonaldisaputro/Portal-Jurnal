@@ -22,7 +22,8 @@ class ArticleNews extends Model
         'is_featured',
         'view',
         'link_pdf',
-        'status'
+        'status',
+        'pdf_file',
     ];
 
     public function setNameAttribute($value)

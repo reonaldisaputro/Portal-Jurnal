@@ -41,18 +41,18 @@ class ArticleNewsResource extends Resource
                     ->preload()
                     ->required(),
 
-                // Forms\Components\Select::make('author_id')
-                //     ->relationship('author', 'name')
-                //     ->default(fn() => auth()->user()->author_id)
-                //     ->hidden(fn() => auth()->user()->hasRole('author'))
-                //     // ->disabled(fn() => auth()->user()->hasRole('author'))
-                //     // ->visible(fn() => auth()->user()->hasRole('super_admin'))
-                //     ->required()
-                //     ->searchable()
-                //     ->preload(),
+                Forms\Components\Select::make('author_id')
+                    ->relationship('author', 'name')
+                    ->default(fn() => auth()->user()->author_id)
+                    ->hidden(fn() => !auth()->user()->hasRole('super_admin'))
+                    // ->disabled(fn() => auth()->user()->hasRole('author'))
+                    // ->visible(fn() => auth()->user()->hasRole('super_admin'))
+                    ->required()
+                    ->searchable()
+                    ->preload(),
 
-                Forms\Components\Hidden::make('author_id')
-                    ->default(fn() => auth()->check() ? auth()->user()->author_id : null),
+                // Forms\Components\Hidden::make('author_id')
+                //     ->default(fn() => auth()->check() ? auth()->user()->author_id : null),
 
 
                 Forms\Components\Select::make('is_featured')
@@ -62,11 +62,18 @@ class ArticleNewsResource extends Resource
                     ])
                     ->required()
                     ->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
-                Forms\Components\TextInput::make('link_pdf')
-                    ->activeUrl()
-                    ->label('Link PDF')
-                    ->required()
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('link_pdf')
+                //     ->activeUrl()
+                //     ->label('Link PDF')
+                //     ->required()
+                //     ->maxLength(255),
+                Forms\Components\FileUpload::make('pdf_file')
+                    ->label('Upload PDF File')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->directory('article/pdf')
+                    ->maxSize(10240) // Maksimal 10MB (opsional)
+                    ->required(),
+                
 
 
                 Forms\Components\RichEditor::make('content')
@@ -117,8 +124,13 @@ class ArticleNewsResource extends Resource
                     }),
 
                 Tables\Columns\TextColumn::make('category.name'),
-                Tables\Columns\TextColumn::make('link_pdf')
-                    ->label('Link PDF'),
+                // Tables\Columns\TextColumn::make('link_pdf')
+                //     ->label('Link PDF'),
+                Tables\Columns\TextColumn::make('pdf_file')
+                    ->label('PDF File')
+                    ->url(fn($record) => $record->pdf_file ? asset('storage/' . $record->pdf_file) : null, true) // URL untuk unduh
+                    ->openUrlInNewTab()
+                    ->formatStateUsing(fn($state) => basename($state)),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->formatStateUsing(function ($state) {
