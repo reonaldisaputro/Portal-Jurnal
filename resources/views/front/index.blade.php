@@ -197,11 +197,11 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   
-                        <div class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
+                        <a href="/detail-dosen" class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
                             <img src="\assets\images\photos\dosen.png" alt="dosen" class="h-56 rounded-xl w-full object-cover">
                             <p class="text-lg text-black pt-4 font-semibold group-hover:text-white">Pak Hambali Ahmad</p>
                             <p class="text-white text-sm text-[#00000087] group-hover:text-white">Bahasa Arab</p>
-                        </div>
+                        </a>
                         <div class="bg-[#007AFF26] rounded-xl hover:bg-[#007AFF] transition p-3 group w-[15rem] border border-[#E5E5E5] hover:shadow-md">
                             <img src="\assets\images\photos\dosen.png" alt="dosen" class="h-56 rounded-xl w-full object-cover">
                             <p class="text-lg text-black pt-4 font-semibold group-hover:text-white">Pak Hambali Ahmad</p>
