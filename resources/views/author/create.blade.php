@@ -1,144 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Author</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Registrasi Mahasiswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Registrasi Mahasiswa</h1>
 
-    <div class="max-w-lg mx-auto py-10">
-        <h1 class="text-2xl font-bold text-center mb-6">Tambah Author Baru</h1>
+        <!-- Pesan error umum -->
+        @if(session('error'))
+            <div class="mb-4 p-3 bg-red-200 text-red-700 rounded">
+                {{ session('error') }}
+            </div>
+        @endif
 
-        <!-- Form untuk menambahkan author baru -->
-        <form action="{{ route('author.store') }}" method="POST" enctype="multipart/form-data"
-            class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <!-- Form Registrasi -->
+        <form action="{{ route('author.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <!-- Name -->
+            <!-- Nama -->
             <div class="mb-4">
-                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                <label for="name" class="block text-gray-700 font-bold mb-2">Nama</label>
                 <input type="text" name="name" id="name"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
+                    class="border rounded-lg w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value="{{ old('name') }}" required>
                 @error('name')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Email -->
             <div class="mb-4">
-                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
                 <input type="email" name="email" id="email"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
+                    class="border rounded-lg w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value="{{ old('email') }}" required>
                 @error('email')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <!-- Password & Konfirmasi Password -->
+            <div class="mb-4 relative">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
                 <input type="password" name="password" id="password"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="border rounded-lg w-full py-2 px-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
+                <span class="absolute right-3 top-9 cursor-pointer" onclick="togglePassword('password')">
+                    👁️
+                </span>
                 @error('password')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
-            <!-- Phone -->
-            <div class="mb-4">
-                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Nomor Telepon</label>
-                <input type="text" name="phone" id="phone"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            <div class="mb-4 relative">
+                <label for="password_confirmation" class="block text-gray-700 font-bold mb-2">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation" id="password_confirmation"
+                    class="border rounded-lg w-full py-2 px-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
+                <span class="absolute right-3 top-9 cursor-pointer" onclick="togglePassword('password_confirmation')">
+                    👁️
+                </span>
+            </div>
+
+            <!-- Nomor Telepon -->
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700 font-bold mb-2">Nomor Telepon</label>
+                <input type="text" name="phone" id="phone"
+                    class="border rounded-lg w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value="{{ old('phone') }}" required>
                 @error('phone')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
-            <!-- Occupation -->
+            <!-- Pekerjaan -->
             <div class="mb-4">
-                <label for="occupation" class="block text-gray-700 text-sm font-bold mb-2">Pekerjaan</label>
+                <label for="occupation" class="block text-gray-700 font-bold mb-2">Pekerjaan</label>
                 <input type="text" name="occupation" id="occupation"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('occupation')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
+                    class="border rounded-lg w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value="{{ old('occupation') }}">
             </div>
 
-            <!-- Social Media Links -->
+            <!-- Avatar Upload -->
             <div class="mb-4">
-                <label for="instagram" class="block text-gray-700 text-sm font-bold mb-2">Link Instagram</label>
-                <input type="url" name="instagram" id="instagram"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('instagram')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                <label for="avatar" class="block text-gray-700 font-bold mb-2">Foto Profil</label>
+                <input type="file" name="avatar" id="avatar"
+                    class="border rounded-lg w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                @error('avatar')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="facebook" class="block text-gray-700 text-sm font-bold mb-2">Link Facebook</label>
-                <input type="url" name="facebook" id="facebook"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('facebook')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-4">
-                <label for="youtube" class="block text-gray-700 text-sm font-bold mb-2">Link Youtube</label>
-                <input type="url" name="youtube" id="youtube"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('youtube')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-4">
-                <label for="linkedin" class="block text-gray-700 text-sm font-bold mb-2">Link LinkedIn</label>
-                <input type="url" name="linkedin" id="linkedin"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('linkedin')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-4">
-                <label for="tiktok" class="block text-gray-700 text-sm font-bold mb-2">Link Tiktok</label>
-                <input type="url" name="tiktok" id="tiktok"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('tiktok')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-4">
-                <label for="twitter" class="block text-gray-700 text-sm font-bold mb-2">Link Twitter</label>
-                <input type="url" name="twitter" id="twitter"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('twitter')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Add other social media links here similarly -->
-
-            <!-- Submit Button -->
-            <div class="flex items-center justify-between">
+            <!-- Tombol Submit -->
+            <div class="mt-6">
                 <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Simpan
+                    class="w-full bg-blue-500 text-white py-2 rounded-lg font-bold hover:bg-blue-700 transition duration-200">
+                    Daftar
                 </button>
             </div>
         </form>
     </div>
 
-</body>
+    <!-- JavaScript untuk Toggle Password -->
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+    </script>
 
+</body>
 </html>

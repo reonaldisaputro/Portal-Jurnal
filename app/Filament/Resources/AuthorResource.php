@@ -20,6 +20,26 @@ class AuthorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return 'Mahasiswa';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Mahasiswa';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Mahasiswa';
+    }
+
+    public static function getBreadcrumb(): string
+    {
+        return 'Mahasiswa';
+    }
+
     public static function form(Form $form): Form
     {
         return $form

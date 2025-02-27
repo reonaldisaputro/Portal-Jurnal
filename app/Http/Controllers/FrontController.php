@@ -168,7 +168,7 @@ class FrontController extends Controller
         $articles = ArticleNews::with(['category'])
             ->where('is_featured', 'not_featured')
             ->where('id', '!=', $articleNews->id)
-            ->where('status', 'accept') // Tambahkan filter
+            ->where('status', 'accept') 
             ->latest()
             ->take(3)
             ->get();
@@ -196,12 +196,12 @@ class FrontController extends Controller
 
         $author_news = ArticleNews::where('author_id', $articleNews->author_id)
             ->where('id', '!=', $articleNews->id)
-            ->where('status', 'accept') // Tambahkan filter
+            ->where('status', 'accept') 
             ->inRandomOrder()
             ->get();
 
         if ($articleNews->status !== 'accept') {
-            abort(404); // Mengembalikan halaman 404 jika artikel tidak diterima
+            abort(404);
         }
 
         return view('front.details', compact('articleNews', 'categories', 'articles', 'bannerads', 'square_ads_1', 'square_ads_2', 'author_news'));

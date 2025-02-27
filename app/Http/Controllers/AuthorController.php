@@ -13,67 +13,78 @@ use Illuminate\Validation\ValidationException;
 
 class AuthorController extends Controller
 {
-
     public function store(Request $request)
     {
-        // Validasi data input
         try {
+            // ✅ Validasi data input termasuk konfirmasi password
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'nullable|string|unique:authors,slug',
                 'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                 'occupation' => 'nullable|string|max:255',
-                'email' => 'required|email|unique:authors,email|unique:users,email', // Pastikan email unik di Author dan User
-                'password' => 'required|string|min:6',
+                'email' => 'required|email|unique:users,email', // Cukup di tabel users
+                'password' => 'required|string|min:6|confirmed', // ✅ Konfirmasi password
                 'phone' => 'required|string|max:20',
                 'angkatan' => 'nullable|string|max:50',
                 'jurusan' => 'nullable|string|max:100',
-                'instagram' => 'nullable|string|url',
-                'facebook' => 'nullable|string|url',
-                'youtube' => 'nullable|string|url',
-                'linkedin' => 'nullable|string|url',
-                'twitter' => 'nullable|string|url',
-                'tiktok' => 'nullable|string|url',
-                'status' => 'nullable|in:pending,accept,reject'
+                'instagram' => 'nullable|url',
+                'facebook' => 'nullable|url',
+                'youtube' => 'nullable|url',
+                'linkedin' => 'nullable|url',
+                'twitter' => 'nullable|url',
+                'tiktok' => 'nullable|url',
+                'status' => 'nullable|in:pending,accept,reject',
             ]);
 
             DB::beginTransaction();
 
-            // Jika slug tidak disediakan, generate slug dari nama
-            if (empty($validatedData['slug'])) {
-                $validatedData['slug'] = Str::slug($validatedData['name']) . '-' . Str::random(6);
-            }
+            // ✅ Generate slug dari nama jika tidak diinputkan
+            $validatedData['slug'] = $validatedData['slug'] ?? Str::slug($validatedData['name']) . '-' . Str::random(6);
 
-            // Hash password sebelum menyimpannya ke database
+            // ✅ Hash password sebelum menyimpannya ke database
             $validatedData['password'] = Hash::make($validatedData['password']);
 
-            // Jika ada avatar, upload dan simpan path-nya
-            if ($request->hasFile('avatar')) {
-                $validatedData['avatar'] = $request->file('avatar')->store('avatars', 'public');
-            }
+            // ✅ Jika ada avatar, upload dan simpan path-nya
+            $validatedData['avatar'] = $this->uploadAvatar($request);
 
-            // Membuat Author baru
+            // ✅ Membuat Author baru
             $author = Author::create($validatedData);
 
-            // Membuat User baru yang terkait dengan Author
-            $user = User::create([
-                'name' => $author->name,
-                'email' => $author->email,
-                'password' => $author->password, // Password sudah di-hash
-                'author_id' => $author->id,
-            ]);
+            // ✅ Membuat User baru yang terkait dengan Author
+            $this->createUserFromAuthor($author);
 
             DB::commit();
 
             return view('author.info_email')->with('success', 'Registration successful!');
         } catch (ValidationException $e) {
             DB::rollBack();
-            // Redirect ke halaman sebelumnya dengan pesan error validasi
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (Exception $e) {
             DB::rollBack();
-            // Redirect ke halaman sebelumnya dengan pesan error lainnya
-            return redirect()->back()->with('error', 'Failed to create author and user')->withInput();
+            return redirect()->back()->with('error', 'Failed to create author and user. ' . $e->getMessage())->withInput();
         }
+    }
+
+    /**
+     * ✅ Upload avatar jika ada
+     */
+    private function uploadAvatar(Request $request)
+    {
+        return $request->hasFile('avatar') 
+            ? $request->file('avatar')->store('avatars', 'public') 
+            : null;
+    }
+
+    /**
+     * ✅ Membuat user berdasarkan data author
+     */
+    private function createUserFromAuthor(Author $author)
+    {
+        return User::create([
+            'name' => $author->name,
+            'email' => $author->email,
+            'password' => $author->password, // Password sudah di-hash
+            'author_id' => $author->id,
+        ]);
     }
 }

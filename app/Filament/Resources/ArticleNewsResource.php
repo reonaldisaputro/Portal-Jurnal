@@ -41,18 +41,14 @@ class ArticleNewsResource extends Resource
                     ->preload()
                     ->required(),
 
-                Forms\Components\Select::make('author_id')
+                auth()->user()->hasRole('super_admin') 
+                ? Forms\Components\Select::make('author_id')
                     ->relationship('author', 'name')
-                    ->default(fn() => auth()->user()->author_id)
-                    ->hidden(fn() => !auth()->user()->hasRole('super_admin'))
-                    // ->disabled(fn() => auth()->user()->hasRole('author'))
-                    // ->visible(fn() => auth()->user()->hasRole('super_admin'))
                     ->required()
                     ->searchable()
-                    ->preload(),
-
-                // Forms\Components\Hidden::make('author_id')
-                //     ->default(fn() => auth()->check() ? auth()->user()->author_id : null),
+                    ->preload() 
+                : Forms\Components\Hidden::make('author_id')
+                    ->default(fn() => auth()->check() ? auth()->user()->author_id : null),
 
 
                 Forms\Components\Select::make('is_featured')
@@ -60,13 +56,10 @@ class ArticleNewsResource extends Resource
                         'featured' => 'Featured',
                         'not_featured' => 'Not Featured',
                     ])
+                    ->default(fn() => 'not_featured')
                     ->required()
-                    ->visible(fn() => auth()->check() && auth()->user()->hasRole('super_admin')),
-                // Forms\Components\TextInput::make('link_pdf')
-                //     ->activeUrl()
-                //     ->label('Link PDF')
-                //     ->required()
-                //     ->maxLength(255),
+                    ->disabled(fn() => !auth()->user()->hasRole('super_admin')),
+                    
                 Forms\Components\FileUpload::make('pdf_file')
                     ->label('Upload PDF File')
                     ->acceptedFileTypes(['application/pdf'])

@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Author;
+use App\Models\ArticleNews;
 use App\Observers\AuthorObserver;
+use App\Observers\ArticleNewsObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Author::observe(AuthorObserver::class);
+        ArticleNews::observe(ArticleNewsObserver::class);
     }
 }
