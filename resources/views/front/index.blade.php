@@ -2,33 +2,27 @@
 @section('content')
 
     <body class="font-[Poppins] bg-[#C0D1D9]">
-        <x-navbar />
-        <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
+        <x-navbar :categories="$categories"/>
+        {{-- <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px] reveal">
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
                     <!-- Tambahkan bg-white -->
-                    {{-- <div class="w-6 h-6 flex shrink-0">
+                    <div class="w-6 h-6 flex shrink-0">
                         <img src="{{ asset('storage/' . $category->icon) }}" alt="icon" />
-                    </div> --}}
+                    </div>
                     <span>{{ $category->name ?? 'Kategori Tidak Ditemukan' }}</span>
                 </a>
             @endforeach
-        </nav>
+        </nav> --}}
 
         <div class="bg-white">
-            <section id="Featured" class="mt-[30px]">
+            <section id="Featured" class="mt-[30px] reveal">
                 <div class="main-carousel w-full">
 
                     @forelse($featured_articles as $article)
-                        <div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
-                            @if (isset($featured_articles->thumbnail))
-                                <img src="{{ asset('storage/' . $article->thumbnail) }}"
-                                    class="thumbnail absolute w-full h-full object-cover" alt="icon" />
-                            @else
-                                <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
-                                    class="thumbnail absolute w-full h-full object-cover" alt="icon" />
-                            @endif
+                        <div class="featured-news-card relative w-full h-[550px] md:h-[650px] lg:h-[750px] flex shrink-0 overflow-hidden">
+                            <img src="{{ asset('storage/public/' . $article->thumbnail) }}" class="thumbnail absolute w-full h-full object-contain" alt="icon" />
                             <div
                                 class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10">
                             </div>
@@ -59,15 +53,15 @@
 
                 </div>
             </section>
-            <section id="Up-to-date" class="mx-3 md:mx-64 flex flex-col gap-[30px] mt-[70px]">
-                <div class="flex justify-between items-center">
-                    <h2 class="font-bold text-[26px] leading-[39px]">
+            <section id="Up-to-date" class="mx-3 md:mx-64 flex flex-col gap-[30px] mt-[70px] reveal">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <h2 class="font-bold text-xl md:text-2xl lg:text-[26px] leading-[30px] md:leading-[39px]">
                         Karya Ilmiah Terbaru <br />
                         Untuk Bacaan Anda
                     </h2>
-                    <p
-                        class="badge-orange rounded-full p-[8px_18px] bg-[#FFECE1] font-bold text-sm leading-[21px] text-[#FF6B18] w-fit">
-                        UP TO DATE</p>
+                    <p class="badge-orange rounded-full px-4 py-2 bg-[#FFECE1] font-bold text-xs md:text-sm leading-[21px] text-[#FF6B18] w-fit mt-4">
+                        UP TO DATE
+                    </p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-[30px]">
 
@@ -96,7 +90,7 @@
 
                 </div>
             </section>
-            <section id="Best-authors" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px]">
+            <section id="Best-authors" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px] reveal">
                 <div class="flex flex-col text-center gap-[14px] items-center">
                     <p
                         class="badge-orange rounded-full p-[8px_18px] bg-[#FFECE1] font-bold text-sm leading-[21px] text-[#FF6B18] w-fit">
@@ -113,7 +107,7 @@
                                 class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                 <div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden bg-gray-200">
                                     @if ($author->avatar)
-                                        <img src="{{ asset('storage/' . $author->avatar) }}"
+                                        <img src="{{ asset('storage/public/' . $author->avatar) }}"
                                             class="object-cover w-full h-full" alt="avatar" />
                                     @else
                                         <div class="flex items-center justify-center w-full h-full">
@@ -133,12 +127,12 @@
 
                 </div>
             </section>
-            <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px]">
+            <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px] reveal">
                 <div class="flex flex-col gap-3 shrink-0 w-full">
                     <a href="{{ $bannerads->link ?? '#' }}">
                         <div class="w-full h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
                             @if (isset($bannerads->thumbnail))
-                                <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
+                                <img src="{{ asset('storage/public/' . $bannerads->thumbnail) }}" class="object-cover w-full h-full"
                                     alt="ads" />
                             @else
                                 <img src="{{ asset('assets/images/thumbnails/bannerads-1.png') }}"
@@ -154,10 +148,10 @@
                     </p> --}}
                 </div>
             </section>
-            <section id="Latest-entertainment" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px]">
+            <section id="Latest-entertainment" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px] reveal">
                 <div class="flex justify-between items-center">
                     <h2 class="font-bold text-[26px] leading-[39px]">
-                        Terbaru di Jurnal Akademik
+                        Terbaru di Jurnal Tasawuf
                     </h2>
                     {{-- <a href="categoryPage.html"
                         class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore
@@ -166,7 +160,7 @@
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
                         @if (isset($entertainment_featured_articles->thumbnail))
-                            <img src="{{ Storage::url($entertainment_featured_articles->thumbnail) }}"
+                            <img src="{{ asset('storage/public/' . $entertainment_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
                             <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
@@ -200,7 +194,7 @@
                                         class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                         <div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
                                             @if (isset($article->thumbnail))
-                                                <img src="{{ Storage::url($article->thumbnail) }}"
+                                                <img src="{{ asset('storage/public/' . $article->thumbnail) }}"
                                                     class="object-cover w-full h-full" alt="thumbnail" />
                                             @else
                                                 <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
@@ -218,7 +212,7 @@
                                     </div>
                                 </a>
                             @empty
-                                <p>belum ada artikel terbaru</p>
+                                <p class="mt-5">belum ada artikel terbaru</p>
                             @endforelse
 
                         </div>
@@ -228,10 +222,10 @@
                     </div>
                 </div>
             </section>
-            <section id="Latest-business" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px]">
+            <section id="Latest-business" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px] reveal">
                 <div class="flex justify-between items-center">
                     <h2 class="font-bold text-[26px] leading-[39px]">
-                        Terbaru di Kajian Islam
+                        Terbaru di Aqidah
                     </h2>
                     {{-- <a href="categoryPage.html"
                         class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore
@@ -240,7 +234,7 @@
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
                         @if (isset($business_featured_articles->thumbnail))
-                            <img src="{{ Storage::url($business_featured_articles->thumbnail) }}"
+                            <img src="{{ asset('storage/public/' . $business_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
                             <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
@@ -272,7 +266,7 @@
                                     <div
                                         class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                         <div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
-                                            <img src="{{ Storage::url($article->thumbnail) }}"
+                                            <img src="{{ asset('storage/public/' . $article->thumbnail) }}"
                                                 class="object-cover w-full h-full" alt="thumbnail" />
                                         </div>
                                         <div class="flex flex-col justify-center-center gap-[6px]">
@@ -285,7 +279,7 @@
                                     </div>
                                 </a>
                             @empty
-                                <p>belum ada artikel terbaru</p>
+                                <p class="mt-5">belum ada artikel terbaru</p>
                             @endforelse
 
                         </div>
@@ -295,10 +289,10 @@
                     </div>
                 </div>
             </section>
-            <section id="Latest-automotive" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px]">
+            <section id="Latest-automotive" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px] reveal">
                 <div class="flex justify-between items-center">
                     <h2 class="font-bold text-[26px] leading-[39px]">
-                        Terbaru di Ekonomi Syariah
+                        Terbaru di Tafsir
                     </h2>
                     {{-- <a href="categoryPage.html"
                         class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore
@@ -307,7 +301,7 @@
                 <div class="md:flex justify-between items-center h-fit">
                     <div class="featured-news-card relative md:w-3/6 h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
                         @if (isset($automotive_featured_articles->thumbnail))
-                            <img src="{{ Storage::url($automotive_featured_articles->thumbnail) }}"
+                            <img src="{{ asset('storage/public/' . $automotive_featured_articles->thumbnail) }}"
                                 class="thumbnail absolute w-full h-full object-cover" alt="icon" />
                         @else
                             <img src="{{ asset('assets/images/thumbnails/th-building.png') }}"
@@ -340,7 +334,7 @@
                                     <div
                                         class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                         <div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
-                                            <img src="{{ Storage::url($article->thumbnail) }}"
+                                            <img src="{{ asset('storage/public/' . $article->thumbnail) }}"
                                                 class="object-cover w-full h-full" alt="thumbnail" />
                                         </div>
                                         <div class="flex flex-col justify-center-center gap-[6px]">
@@ -353,7 +347,7 @@
                                     </div>
                                 </a>
                             @empty
-                                <p>belum ada artikel terbaru</p>
+                                <p class="mt-5">belum ada artikel terbaru</p>
                             @endforelse
 
                         </div>
@@ -368,6 +362,65 @@
 
 
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                revealElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.9) {
+                        el.classList.add("active");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+
+            // Flickity Carousel Enhancements
+            const carousel = document.querySelector(".main-carousel");
+            if (carousel) {
+                new Flickity(carousel, {
+                    cellAlign: "left",
+                    contain: true,
+                    wrapAround: true,
+                    autoPlay: 5000,
+                    pauseAutoPlayOnHover: true,
+                    prevNextButtons: false,
+                    pageDots: true,
+                });
+            }
+
+            // Hover Animations
+            const cards = document.querySelectorAll(".card-news, .card-authors");
+            cards.forEach((card) => {
+                card.addEventListener("mouseenter", () => {
+                    card.style.transform = "scale(1.05)";
+                    card.style.transition = "all 0.3s ease";
+                });
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "scale(1)";
+                });
+            });
+        });
+
+    // CSS (Tambahkan ke file CSS Anda)
+        const styles = `
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        `; 
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = styles;
+        document.head.appendChild(styleSheet);
+    </script>
 @endsection
 @push('after-styles')
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />

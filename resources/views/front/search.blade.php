@@ -8,42 +8,18 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
 	</head>
-	<body class="font-[Poppins]">
+	<body class="font-[Poppins] bg-[#F9F9FC]">
 		<x-navbar/>
-		<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
-            @foreach($categories as $item_category)
-            <a href="{{route('front.category', $item_category->slug)}}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-                {{-- <div class="w-6 h-6 flex shrink-0">
-                    <img src="{{Storage::url($item_category->icon)}}" alt="icon" />
-                </div> --}}
-                <span>{{ $item_category->name }}</span>
-            </a>
-            @endforeach
-        </nav>
 		<section id="heading" class="max-w-[1130px] mx-auto flex items-center flex-col gap-[30px] mt-[70px]">
 			<h1 class="text-4xl leading-[45px] font-bold text-center">
 				Explore Hot Trending <br />
 				Good News Today
 			</h1>
-			<form action="{{route('front.search')}}" method="GET">
-				<label for="search-bar" class="w-[500px] flex p-[12px_20px] transition-all duration-300 gap-[10px] ring-1 ring-[#E8EBF4] focus-within:ring-2 focus-within:ring-[#FF6B18] rounded-[50px] group">
-					<div class="w-5 h-5 flex shrink-0">
-						<img src="assets/images/icons/search-normal.svg" alt="icon" />
-					</div>
-					<input
-						autocomplete="off"
-						type="text"
-						id="search-bar"
-						name="keyword"
-						placeholder="Search hot trendy news today..."
-						class="appearance-none font-semibold placeholder:font-normal placeholder:text-[#A3A6AE] outline-none focus:ring-0 w-full"
-					/>
-				</label>
-			</form>
+			
 		</section>
-		<section id="search-result" class="max-w-[1130px] mx-auto flex items-start flex-col gap-[30px] mt-[70px] mb-[100px]">
+		<section id="search-result" class="max-w-[1130px] mx-auto flex items-start flex-col gap-[30px] mt-[70px] mb-[100px] px-4 md:px-0">
 			<h2 class="text-[26px] leading-[39px] font-bold">Search Result: <span>{{ucfirst($keyword)}}</span></h2>
-			<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
+			<div id="search-cards" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
                 @forelse($articles as $article)
 				<a href="{{route('front.details', $article->slug)}}" class="card">
                     <div
@@ -53,7 +29,7 @@
                                 class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
                                 <p class="text-xs leading-[18px] font-bold uppercase">{{$article->category->name}}</p>
                             </div>
-                            <img src="{{Storage::url($article->thumbnail)}}" alt="thumbnail photo"
+                            <img src="{{ asset('storage/public/' . $article->thumbnail) }}" alt="thumbnail photo"
                                 class="w-full h-full object-cover" />
                         </div>
                         <div class="flex flex-col gap-[6px]">
@@ -68,5 +44,6 @@
 				
 			</div>
 		</section>
+        <x-footer />
 	</body>
 </html>

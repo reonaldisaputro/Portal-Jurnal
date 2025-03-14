@@ -2,29 +2,30 @@
 @section('content')
 
     <body class="font-[Poppins] bg-[#F9F9FC]">
-        <x-navbar />
-        <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
+        <x-navbar :categories="$categories"/>
+        {{-- <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
             @foreach ($categories as $category)
                 <a href="{{ route('front.category', $category->slug) }}"
                     class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-                    {{-- <div class="w-6 h-6 flex shrink-0">
+                    <div class="w-6 h-6 flex shrink-0">
                         <img src="{{ Storage::url($category->icon) }}" alt="icon" />
-                    </div> --}}
+                    </div>
                     <span>{{ $category->name }}</span>
                 </a>
             @endforeach
-        </nav>
-        <header class="flex flex-col items-center gap-[50px] mt-[70px]">
+        </nav> --}}
+        <header class="flex flex-col items-center gap-[50px] mt-[70px] reveal">
             <div id="Headline" class="max-w-[1130px] mx-auto flex flex-col gap-4 items-center">
                 <p class="w-fit text-[#A3A6AE]">{{ $articleNews->created_at->format('M d, Y') }} •
                     {{ $articleNews->category->name }}</p>
-                <h1 id="Title" class="font-bold text-[46px] leading-[60px] text-center two-lines">
-                    {{ $articleNews->name }}</h1>
+                    <h1 id="Title" class="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[46px] leading-[40px] sm:leading-[50px] md:leading-[60px] text-center two-lines">
+                        {{ $articleNews->name }}
+                    </h1>
                 <div class="flex items-center justify-center gap-[70px]">
                     <a id="Author" href="{{ route('front.author', $articleNews->author->slug) }}" class="w-fit h-fit">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full overflow-hidden">
-                                <img src="{{ Storage::url($articleNews->author->avatar) }}"
+                                <img src="{{ asset('storage/public/' . $articleNews->author->avatar) }}"
                                     class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col">
@@ -33,41 +34,41 @@
                             </div>
                         </div>
                     </a>
-                    <div id="Rating" class="flex items-center gap-1">
-                        <div class="flex items-center">
-                            <div class="w-4 h-4 flex shrink-0">
-                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">
-                            </div>
-                            <div class="w-4 h-4 flex shrink-0">
-                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">
-                            </div>
-                            <div class="w-4 h-4 flex shrink-0">
-                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">
-                            </div>
-                            <div class="w-4 h-4 flex shrink-0">
-                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">
-                            </div>
-                            <div class="w-4 h-4 flex shrink-0">
-                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">
-                            </div>
-                        </div>
-                        <p class="font-semibold text-xs leading-[18px]">(12,490)</p>
-                    </div>
+                    <!--<div id="Rating" class="flex items-center gap-1">-->
+                    <!--    <div class="flex items-center">-->
+                    <!--        <div class="w-4 h-4 flex shrink-0">-->
+                    <!--            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">-->
+                    <!--        </div>-->
+                    <!--        <div class="w-4 h-4 flex shrink-0">-->
+                    <!--            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">-->
+                    <!--        </div>-->
+                    <!--        <div class="w-4 h-4 flex shrink-0">-->
+                    <!--            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">-->
+                    <!--        </div>-->
+                    <!--        <div class="w-4 h-4 flex shrink-0">-->
+                    <!--            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">-->
+                    <!--        </div>-->
+                    <!--        <div class="w-4 h-4 flex shrink-0">-->
+                    <!--            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star">-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--    <p class="font-semibold text-xs leading-[18px]">(12,490)</p>-->
+                    <!--</div>-->
                 </div>
             </div>
-            <div class="w-full h-[500px] flex shrink-0 overflow-hidden">
-                <img src="{{ Storage::url($articleNews->thumbnail) }}" class="object-cover w-full h-full"
+            <div class="w-full h-auto flex shrink-0 overflow-hidden">
+                <img src="{{ asset('storage/public/' . $articleNews->thumbnail) }}" class="object-contain w-full h-full"
                     alt="cover thumbnail">
             </div>
         </header>
-        <section id="Article-container" class="max-w-[1130px] md:mx-auto mx-3 md:flex gap-20 mt-[50px]">
+        <section id="Article-container" class="max-w-[1130px] md:mx-auto mx-3 md:flex gap-20 mt-[50px] reveal">
             <article id="Content-wrapper">
                 {!! $articleNews->content !!}
             </article>
             <div class="side-bar flex flex-col md:w-[300px] w-full shrink-0 gap-10">
                 {{-- <div class="ads flex flex-col gap-3 w-full">
                     <a href="{{ $square_ads_1->link }}">
-                        <img src="{{ Storage::url($square_ads_1->thumbnail) }}" class="object-contain w-full h-full"
+                        <img src="{{ asset('storage/public/' . $square_ads_1->thumbnail) }}" class="object-contain w-full h-full"
                             alt="ads" />
                     </a>
                     <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
@@ -82,7 +83,7 @@
                             <div
                                 class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[14px] flex gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
                                 <div class="w-[70px] h-[70px] flex shrink-0 overflow-hidden rounded-2xl">
-                                    <img src="{{ Storage::url($item_news->thumbnail) }}" class="object-cover w-full h-full"
+                                    <img src="{{ asset('storage/public/' . $item_news->thumbnail) }}" class="object-cover w-full h-full"
                                         alt="thumbnail">
                                 </div>
                                 <div class="flex flex-col gap-[6px]">
@@ -102,7 +103,7 @@
                 </div>
                 {{-- <div class="ads flex flex-col gap-3 w-full">
                     <a href="{{ $square_ads_2->link }}">
-                        <img src="{{ Storage::url($square_ads_2->thumbnail) }}" class="object-contain w-full h-full"
+                        <img src="{{ asset('storage/public/' . $square_ads_2->thumbnail) }}" class="object-contain w-full h-full"
                             alt="ads" />
                     </a>
                     <p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
@@ -112,11 +113,11 @@
                 </div> --}}
             </div>
         </section>
-        <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px]">
+        <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px] reveal">
             <div class="flex flex-col gap-3 shrink-0 w-full">
                 <a href="{{ $bannerads->link }}">
                     <div class="w-full h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
-                        <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
+                        <img src="{{ asset('storage/public/' . $bannerads->thumbnail) }}" class="object-cover w-full h-full"
                             alt="ads" />
                     </div>
                 </a>
@@ -126,7 +127,7 @@
                 </p> --}}
             </div>
         </section>
-        <section id="Up-to-date" class="w-full mx-3 md:mx-auto flex justify-center mt-[70px] py-[50px] bg-[#F9F9FC]">
+        <section id="Up-to-date" class="w-full mx-3 md:mx-auto flex justify-center mt-[70px] py-[50px] bg-[#F9F9FC] reveal">
             <div class="mr-3 ml-1 flex flex-col gap-[30px]">
                 <div class="flex justify-between items-center">
                     <h2 class="font-bold text-[26px] leading-[39px]">
@@ -166,6 +167,65 @@
 
 
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                revealElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.9) {
+                        el.classList.add("active");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+
+            // Flickity Carousel Enhancements
+            const carousel = document.querySelector(".main-carousel");
+            if (carousel) {
+                new Flickity(carousel, {
+                    cellAlign: "left",
+                    contain: true,
+                    wrapAround: true,
+                    autoPlay: 5000,
+                    pauseAutoPlayOnHover: true,
+                    prevNextButtons: false,
+                    pageDots: true,
+                });
+            }
+
+            // Hover Animations
+            const cards = document.querySelectorAll(".card-news, .card-authors");
+            cards.forEach((card) => {
+                card.addEventListener("mouseenter", () => {
+                    card.style.transform = "scale(1.05)";
+                    card.style.transition = "all 0.3s ease";
+                });
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "scale(1)";
+                });
+            });
+        });
+
+    // CSS (Tambahkan ke file CSS Anda)
+        const styles = `
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        `; 
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = styles;
+        document.head.appendChild(styleSheet);
+    </script>
 
     </html>
 @endsection

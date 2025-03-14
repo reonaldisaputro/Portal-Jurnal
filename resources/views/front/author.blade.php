@@ -12,23 +12,23 @@
 </head>
 
 <body class="font-[Poppins] bg-[#F9F9FC]">
-    <x-navbar />
-    <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px]">
+    <x-navbar :categories="$categories"/>
+    {{-- <nav id="Category" class="max-w-[1130px] md:mx-auto mx-3 grid md:grid-cols-3 gap-4 mt-[30px] reveal">
         @foreach ($categories as $category)
             <a href="{{ route('front.category', $category->slug) }}"
                 class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
                 <!-- Tambahkan bg-white -->
-                {{-- <div class="w-6 h-6 flex shrink-0">
+                <div class="w-6 h-6 flex shrink-0">
 					<img src="{{ Storage::url($category->icon) }}" alt="icon" />
-				</div> --}}
+				</div>
                 <span>{{ $category->name }}</span>
             </a>
         @endforeach
-    </nav>
-    <section class="max-w-[1130px] my-10 md:mx-auto mx-3 bg-white rounded-xl">
+    </nav> --}}
+    <section class="max-w-[1130px] my-10 md:mx-auto mx-3 bg-white rounded-xl reveal">
         <div class="flex items-center gap-6 py-5 px-5">
             <div class="md:w-52 md:h-52 w-44 h-44 flex rounded-full overflow-hidden">
-                <img src="{{ Storage::url($author->avatar) }}" alt="Profile Photo" class="object-cover">
+                <img src="{{ asset('storage/public/' . $author->avatar) }}" alt="Profile Photo" class="object-cover">
             </div>
             <div>
                 <h1 class="text-[#5D5F65] text-3xl font-bold">{{ $author->name }}</h1>
@@ -36,12 +36,12 @@
             </div>
         </div>
     </section>
-    <section class="max-w-[1130px] md:flex justify-between gap-5 my-10 md:mx-auto mx-3">
+    <section class="max-w-[1130px] md:flex justify-between gap-5 my-10 md:mx-auto mx-3 reveal">
         <div class="bg-white p-5">
-            {{-- <p class="font-bold text-xl">Tentang Saya</p>
-            <p>Yoga Pratama adalah mahasiswa program studi Dakwah dan Komunikasi di UIN Yogyakarta. Ia telah menulis
+            <p class="font-bold text-xl">Tentang Saya</p>
+            <p class="text-justify">Yoga Pratama adalah mahasiswa program studi Dakwah dan Komunikasi di UIN Yogyakarta. Ia telah menulis
                 beberapa jurnal terkait literasi digital dan pengaruh teknologi dalam pengembangan dakwah Islam. Ahmad
-                aktif di berbagai organisasi mahasiswa dan berfokus pada pengembangan dakwah berbasis digital.</p> --}}
+                aktif di berbagai organisasi mahasiswa dan berfokus pada pengembangan dakwah berbasis digital.</p>
             <p class="font-bold pt-3">Kategori</p>
             <div class="grid md:grid-cols-5 gap-2">
                 @forelse ($author->news->unique('category_id') as $news)
@@ -104,7 +104,7 @@
 
         </div>
     </section>
-    <section id="author" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px]">
+    <section id="author" class="max-w-[1130px] md:mx-auto mx-3 flex flex-col gap-[30px] mt-[70px] reveal">
         <div>
             <p class="font-bold text-2xl">Jurnal yang Dimiliki:</p>
         </div>
@@ -118,7 +118,7 @@
                                 class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
                                 <p class="text-xs leading-[18px] font-bold uppercase">{{ $news->category->name }}</p>
                             </div>
-                            <img src="{{ Storage::url($news->thumbnail) }}" alt="thumbnail photo"
+                            <img src="{{ asset('storage/public/' . $news->thumbnail) }}" alt="thumbnail photo"
                                 class="w-full h-full object-cover" />
                         </div>
                         <div class="flex flex-col gap-[6px]">
@@ -134,7 +134,7 @@
 
         </div>
     </section>
-    <section class="max-w-[1130px] md:mx-auto mx-3 mt-[70px]">
+    <section class="max-w-[1130px] md:mx-auto mx-3 mt-[70px] reveal">
         <p class="font-bold text-2xl">Rekomendasi Jurnal dari Penulis Lain:</p>
         <div id="content-cards" class="grid md:grid-cols-3 gap-[30px]">
             @forelse($author->news as $news)
@@ -146,7 +146,7 @@
                                 class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
                                 <p class="text-xs leading-[18px] font-bold uppercase">{{ $news->category->name }}</p>
                             </div>
-                            <img src="{{ Storage::url($news->thumbnail) }}" alt="thumbnail photo"
+                            <img src="{{ asset('storage/public/' . $news->thumbnail) }}" alt="thumbnail photo"
                                 class="w-full h-full object-cover" />
                         </div>
                         <div class="flex flex-col gap-[6px]">
@@ -162,7 +162,7 @@
 
         </div>
     </section>
-    <section class="max-w-[1130px] md:mx-auto mx-3 mt-[70px]">
+    <section class="max-w-[1130px] md:mx-auto mx-3 mt-[70px] reveal">
         <p class="font-bold text-2xl">Jurnal Terkait:</p>
         <div id="content-cards" class="grid md:grid-cols-3 gap-[30px]">
             @forelse($author->news as $news)
@@ -174,7 +174,7 @@
                                 class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
                                 <p class="text-xs leading-[18px] font-bold uppercase">{{ $news->category->name }}</p>
                             </div>
-                            <img src="{{ Storage::url($news->thumbnail) }}" alt="thumbnail photo"
+                            <img src="{{ asset('storage/public/' . $news->thumbnail) }}" alt="thumbnail photo"
                                 class="w-full h-full object-cover" />
                         </div>
                         <div class="flex flex-col gap-[6px]">
@@ -190,11 +190,11 @@
 
         </div>
     </section>
-    <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px]">
+    <section id="Advertisement" class="max-w-[1130px] md:mx-auto mx-3 flex justify-center mt-[70px] reveal">
         <div class="flex flex-col gap-3 shrink-0 w-full">
             <a href="{{ $bannerads->link }}">
                 <div class="w-full h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
-                    <img src="{{ Storage::url($bannerads->thumbnail) }}" class="object-cover w-full h-full"
+                    <img src="{{ asset('storage/public/' . $bannerads->thumbnail) }}" class="object-cover w-full h-full"
                         alt="ads" />
                 </div>
             </a>
@@ -206,5 +206,64 @@
     </section>
     <x-footer />
 </body>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                revealElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.9) {
+                        el.classList.add("active");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+
+            // Flickity Carousel Enhancements
+            const carousel = document.querySelector(".main-carousel");
+            if (carousel) {
+                new Flickity(carousel, {
+                    cellAlign: "left",
+                    contain: true,
+                    wrapAround: true,
+                    autoPlay: 5000,
+                    pauseAutoPlayOnHover: true,
+                    prevNextButtons: false,
+                    pageDots: true,
+                });
+            }
+
+            // Hover Animations
+            const cards = document.querySelectorAll(".card-news, .card-authors");
+            cards.forEach((card) => {
+                card.addEventListener("mouseenter", () => {
+                    card.style.transform = "scale(1.05)";
+                    card.style.transition = "all 0.3s ease";
+                });
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "scale(1)";
+                });
+            });
+        });
+
+    // CSS (Tambahkan ke file CSS Anda)
+        const styles = `
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        `; 
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = styles;
+        document.head.appendChild(styleSheet);
+    </script>
 
 </html>

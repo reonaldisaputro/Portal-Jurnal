@@ -1,13 +1,13 @@
 <footer class="bg-[#1A143C] text-white mt-10 pt-20">
     <div class="grid md:grid-cols-3 gap-5 mb-5 px-20">
         <div>
-            <h2 class="font-bold text-xl">Tentang PKU-MI</h2>
-            <p class="my-3">Pendidikan Kader Ulama Masjid Istiqlal (PKU-MI) adalah platform akademik yang menghimpun
+            <h2 class="font-bold text-[16px]">Tentang PKU-MI</h2>
+            <p class="my-3 text-[16px]">Pendidikan Kader Ulama Masjid Istiqlal (PKU-MI) adalah platform akademik yang menghimpun
                 jurnal dan karya ilmiah dari mahasiswa di seluruh Indonesia. Kami berkomitmen untuk menjadi pusat
                 rujukan ilmu pengetahuan dan kajian Islam, sekaligus memajukan dakwah digital di era modern.</p>
-            <p class="font-bold text-xl">Ikuti Kami</p>
-            <p>Terhubung dengan kami di media sosial untuk mendapatkan update terbaru:</p>
-            <ul class="list-disc text-white ml-5 pl-5">
+            <p class="font-bold text-[14px]">Ikuti Kami</p>
+            <p text-[16px]>Terhubung dengan kami di media sosial untuk mendapatkan update terbaru:</p>
+            <ul class="list-disc text-white ml-5 pl-5 text-[16px]">
                 <li>Facebook</li>
                 <li>Instagram</li>
                 <li>Linkedin</li>
@@ -15,22 +15,22 @@
             </ul>
         </div>
         <div>
-            <h2 class="font-bold text-xl">Navigasi</h2>
-            <ul class="list-disc text-white ml-5 pl-5">
+            <h2 class="font-bold text-[16px]">Navigasi</h2>
+            <ul class="list-disc text-white ml-5 pl-5 text-[16px]">
                 <li><a href="{{ route('front.index') }}" class="hover:underline">Beranda</a></li>
                 <li>Jurnal Kategori</li>
                 <li>Penulis & universitas</li>
             </ul>
-            <h3 class="font-bold mt-5 text-xl">Jurnal Terbaru</h3>
-            <ul class="list-disc text-white ml-5 pl-5">
+            <h3 class="font-bold mt-5 text-[14px]">Jurnal Terbaru</h3>
+            <ul class="list-disc text-white ml-5 pl-5 text-[16px]">
                 <li>Pentingnya Literasi Digital bagi ulama Muda di Era Modern</li>
                 <li>Dampak Ekonomi Syariah terhadap Pertumbuhan UMKM di Indonesia</li>
                 <li>Perkembangan Bank Syariah di Indonesia Pasca Pandemi</li>
             </ul>
         </div>
         <div>
-            <h2 class="font-bold text-xl">Kontak Kami</h2>
-            <ul class="list-disc ml-5 pl-5">
+            <h2 class="font-bold text-[16px]">Kontak Kami</h2>
+            <ul class="list-disc ml-5 pl-5 text-[14px]">
                 <li><span class="font-bold">Alamat: </span>Masjid Istiqlal, Jl.Taman Wijaya Kusuma, Jakarta Pusat,
                     Indonesia</li>
                 <li><span class="font-bold">Email: </span>info@pkumi.ac.id</li>
@@ -46,7 +46,7 @@
             </a>
         </div>
         <div>
-            <p>© 2024 Pendidikan Kader Ulama Masjid Istiqlal. Semua hak cipta dilindungi.</p>
+            <p class="text-[16px]">© 2024 Pendidikan Kader Ulama Masjid Istiqlal. Semua hak cipta dilindungi.</p>
         </div>
     </div>
 </footer>

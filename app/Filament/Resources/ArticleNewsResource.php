@@ -64,8 +64,7 @@ class ArticleNewsResource extends Resource
                     ->label('Upload PDF File')
                     ->acceptedFileTypes(['application/pdf'])
                     ->directory('article/pdf')
-                    ->maxSize(10240) // Maksimal 10MB (opsional)
-                    ->required(),
+                    ->maxSize(10240),
                 
 
 
